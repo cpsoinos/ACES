@@ -145,8 +145,10 @@ zip_code = %w[86704
 82543]
 
 25.times do
-  Restaurant.create(name: "#{name.sample}", street_address: "#{street_address.sample}",
-                    city: "#{city.sample}", state: "#{state.sample}",
-                    zip_code: "#{zip_code.sample}", description: "#{description.sample}",
-                    phone: '012-345-6789', reservations: r_and_d.sample, delivery: r_and_d.sample)
+  Restaurant.find_or_create_by!(
+    name: "#{name.sample}", street_address: "#{street_address.sample}",
+    city: "#{city.sample}", state: "#{state.sample}",
+    zip_code: "#{zip_code.sample}", description: "#{description.sample}",
+    phone: '012-345-6789', reservations: r_and_d.sample, delivery: r_and_d.sample
+    )
 end
