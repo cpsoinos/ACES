@@ -7,4 +7,16 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :restaurant do
+    sequence(:name) {|n| "Restaurant#{n}" }
+    street_address "1 Street Name"
+    city "Boston"
+    state "MA"
+    zip_code "02142"
+    description "pretty cool place to eat"
+    phone "123456789"
+    reservations true
+    delivery false
+  end
+
 end
