@@ -1,6 +1,10 @@
 <h1>All restaurants</h1>
 
-<%= link_to 'New restaurant', new_restaurant_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New restaurant', new_restaurant_path %>
+<% else %>
+  <p>Please<%= link_to ' sign in', new_user_session_path %> to create a new restaurant</p>
+<% end %>
 
 <table>
   <tr>
@@ -13,18 +17,15 @@
 
   <% @restaurants.each do |restaurant| %>
     <tr>
-      <td><%= restaurant.name %></td>
+      <td><%= link_to restaurant.name, restaurant_path(restaurant)
+ %></td>
       <td><%= restaurant.street_address %></td>
       <td><%= restaurant.city %></td>
       <td><%= restaurant.state %></td>
       <td><%= restaurant.zip_code %></td>
-      <td><%= link_to 'Show', restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-      <td><%= link_to 'Delete', restaurant_path(restaurant),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
 
 <%= paginate @restaurants %>
+

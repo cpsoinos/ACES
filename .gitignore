@@ -14,3 +14,5 @@
 
 # Ignore .env file(s). 3/30 AT
 /.env
+
+/coverage

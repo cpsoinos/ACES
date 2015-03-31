@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'restaurants#index'
-  resources :restaurants
+  resources :restaurants, only:
+  [
+    :index, :show, :new, :edit,
+    :create, :update, :destroy
+  ]
+  root "restaurants#index"
 end
