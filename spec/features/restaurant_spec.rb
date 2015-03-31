@@ -53,17 +53,17 @@ feature 'navigates to index page', %Q{
     expect(page).to have_content("Zip code can't be blank")
   end
 
-  scenario 'user clicks restaurant link' do
+  scenario "user clicks restaurant link" do
     visit restaurants_path
 
     click_link restaurant.name
-    expect(page).to have_content('Description:')
+    expect(page).to have_content("Description:")
     expect(page).to have_content(restaurant.description)
-    expect(page).to have_content('Phone')
+    expect(page).to have_content("Phone")
     expect(page).to have_content(restaurant.phone)
-    expect(page).to have_content('Reservations')
+    expect(page).to have_content("Reservations")
     expect(page).to have_content(restaurant.reservations)
-    expect(page).to have_content('Delivery')
+    expect(page).to have_content("Delivery")
     expect(page).to have_content(restaurant.delivery)
   end
 end
