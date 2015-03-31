@@ -40,6 +40,10 @@ group :development, :test do
   gem 'better_errors'
 end
 
+group :test do
+  gem 'coveralls', require: false
+end
+
 # Added dotenv-rails. 3/30 AT
 gem 'dotenv-rails', group: [:development, :test]
 gem 'rspec-rails', group: [:development, :test]
