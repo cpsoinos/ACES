@@ -8,21 +8,20 @@ feature 'user deletes review', %Q{
 
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:review) { FactoryGirl.create(:review)}
 
   before :each do
     sign_in user
   end
 
 
-  scenario 'user successfully deletes review' do
+  scenario 'user cannot delete other users review' do
 
-    visit new_restaurant_review_path(restaurant)
-
-    fill_in 'Body', with: 'very good restaurant'
-    choose('5')
-    click_button('Create Review')
+    visit restaurant_path(restaurant)
     click_link('Delete Review')
-    expect(page).to have_content('Review Deleted!')
+
+    expect(page).not_to have_content('very good restaurant')
+    expect(page).not_to have_content('Review Deleted!')
 
   end
 end

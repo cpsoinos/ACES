@@ -1,5 +1,4 @@
-<%= @restaurant.name %>
-<h1>Write your review</h1>
+<p><strong>Write your review of <%= @restaurant.name %></p></strong>
 <%= form_for [ @restaurant , @review ] do |f| %>
 <p>
     <%= f.label :body %>
@@ -7,7 +6,7 @@
   </p>
   <p>
     <%= f.label :rating %> <br>
-    <% Review:RATINGS.each do |c| %>
+    <% Review::RATINGS.each do |c| %>
       <%= f.radio_button(:rating, c)%>
       <%= f.label("rating_#{c.to_s}", c) %>
     <% end %>
