@@ -41,7 +41,6 @@ feature 'navigates to index page', %Q{
     fill_in("Description", with: restaurant.description)
     click_on("Create Restaurant")
 
-    save_and_open_page
     expect(page).to have_content("Restaurant created!")
   end
 
@@ -54,10 +53,10 @@ feature 'navigates to index page', %Q{
     expect(page).to have_content("Zip code can't be blank")
   end
 
-  scenario 'user clicks restaurant show link' do
+  scenario 'user clicks restaurant link' do
     visit restaurants_path
 
-    click_link 'Show'
+    click_link restaurant.name
     expect(page).to have_content('Description:')
     expect(page).to have_content(restaurant.description)
     expect(page).to have_content('Phone')
