@@ -44,15 +44,17 @@
 </p>
 
 <%= link_to 'Back', restaurants_path %>
-<%= link_to 'Write Review', new_restaurant_review_path(@restaurant) %>
+<% if user_signed_in? %>
+  <%= link_to 'Write Review', new_restaurant_review_path(@restaurant) %>
+<% end %>
 
 <% @restaurant.reviews.each do |r| %>
-<p>Rating:<%=r.rating%></p>
-<p>Review:<%=r.body%></p>
-<%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit Review', edit_restaurant_review_path(r.restaurant_id, r.id) %>
-
+  <p>Rating:<%=r.rating%></p>
+  <p>Review:<%=r.body%></p>
+  <% if r.user == current_user %>
+    <%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } %>
+    <%= link_to 'Edit Review', edit_restaurant_review_path(r.restaurant_id, r.id) %>
+  <% end %>
 <%end%>
-

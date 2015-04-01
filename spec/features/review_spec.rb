@@ -13,7 +13,6 @@ feature "user creates review", %Q{
   end
 
   scenario "user successfully creates new review" do
-
     visit new_restaurant_review_path(restaurant)
     fill_in "Body", with: "very good restaurant"
     choose("5")
@@ -31,30 +30,37 @@ feature "user deletes review", %Q{
 } do
 
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:user2) { FactoryGirl.create(:user) }
   let!(:review) { FactoryGirl.create(:review) }
 
-  before :each do
-    sign_in user2
-  end
-
   scenario "user successfully deletes review" do
-    restaurant = FactoryGirl.create(:restaurant)
-    visit new_restaurant_review_path(restaurant)
-    fill_in "Body", with: "very good restaurant"
-    choose("5")
-    click_button("Create Review")
+    sign_in review.user
+    visit restaurant_path(review.restaurant)
     click_link("Delete Review")
 
     expect(page).to have_content("Review Deleted!")
   end
 
   scenario "user cannot delete other user's review" do
+    sign_in user
     visit restaurant_path(review.restaurant)
-    click_link("Delete Review")
 
-    expect(page).to have_content("great place")
-    expect(page).to have_content("You cannot delete another user's review!")
+    expect(page).to have_content(review.body)
+    expect(page).not_to have_content("Delete Review")
+  end
+end
+
+feature "guest can't write a review", %Q{
+  As a guest
+  I should not be able to review a restaurant
+  Because I am not signed in
+} do
+
+  let!(:restaurant) { FactoryGirl.create(:restaurant) }
+
+  scenario "guest tries to review a restaurant" do
+    visit restaurant_path(restaurant)
+
+    expect(page).not_to have_content("Write Review")
   end
 end
 
@@ -64,27 +70,23 @@ feature "user edits review", %Q{
   so that I can change my mind
 } do
 
-  let!(:user) { FactoryGirl.create(:user) }
   let!(:review) { FactoryGirl.create(:review) }
+  before :each do
+    sign_in review.user
+  end
 
-  scenario "user tries to edit a review he/she has written" do
-    # restaurant = FactoryGirl.create(:restaurant)
-
+  scenario "user tries to edit a review" do
     visit restaurant_path(review.restaurant)
-    save_and_open_page
-    binding.pry
     click_link("Edit Review")
 
-    expect(page).to have_content("Body")
+    expect(page).to have_content("Edit your review of #{review.restaurant.name}")
   end
 
   scenario "user tries to edit a review he/she has written" do
-    restaurant = FactoryGirl.create(:restaurant)
-    visit edit_restaurant_review_path(restaurant)
+    visit edit_restaurant_review_path(review.restaurant, review)
     fill_in "Body", with: "I changed my mind, and this place sucks"
+    click_button("Update Review")
 
-    expect(page).to have_content("Review updated.")
+    expect(page).to have_content("Review updated!")
   end
-
-
 end

@@ -5,16 +5,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-      @restaurant= Restaurant.find(params[:restaurant_id])
-      @review = @restaurant.reviews.new(review_params)
-      @review.user = current_user
-      if @review.save
-        flash[:notice] = "Review Created!"
-        redirect_to restaurant_path(@restaurant)
-      else
-        render :new
-      end
+    @restaurant= Restaurant.find(params[:restaurant_id])
+    @review = @restaurant.reviews.new(review_params)
+    @review.user = current_user
+    if @review.save
+      flash[:notice] = "Review Created!"
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
     end
+  end
 
     def destroy
       @restaurant = Restaurant.find(params[:restaurant_id])
@@ -33,6 +33,7 @@ class ReviewsController < ApplicationController
     def edit
       @restaurant = Restaurant.find(params[:restaurant_id])
       @review = Review.find(params[:id])
+      # render plain: params[:review].inspect
     end
 
     def update
@@ -58,7 +59,3 @@ class ReviewsController < ApplicationController
     end
 
 end
-
-
-
-
