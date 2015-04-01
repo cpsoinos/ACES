@@ -17,6 +17,7 @@ FactoryGirl.define do
     phone "123456789"
     reservations true
     delivery false
+    user
   end
 
   factory :review do

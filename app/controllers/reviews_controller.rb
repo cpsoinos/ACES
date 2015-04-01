@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def show
+    @review = Review.find(params[:id])
+  end
+
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = @restaurant.reviews.new(review_params)
@@ -20,10 +24,7 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.find(params[:id])
 
-    if @review.user_id != current_user.id
-      flash[:notice] = "You cannot delete another user's review!"
-      render :"restaurants/show"
-    else
+    if @review.user_id == current_user.id
       @review.destroy
       flash[:notice] = "Review Deleted!"
       redirect_to restaurant_path(@restaurant)

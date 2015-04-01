@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'navigates to index page', %Q{
+feature "navigates to index page", %Q{
   As an authenticated user
   I want to view a list of restaurants
   So that I can pick items to review
@@ -66,4 +66,62 @@ feature 'navigates to index page', %Q{
     expect(page).to have_content("Delivery")
     expect(page).to have_content(restaurant.delivery)
   end
+end
+
+feature "user edits a restaurant they own", %Q{
+  As a restaurant owner
+  I want to edit my restaurant
+  So others can see correct details
+} do
+
+  let!(:restaurant) { FactoryGirl.create(:restaurant) }
+  let!(:user) { FactoryGirl.create(:user) }
+
+  scenario "owner edits a restaurant they own" do
+    sign_in restaurant.user
+    visit restaurant_path(restaurant)
+
+    expect(page).to have_content("Edit restaurant")
+  end
+
+  scenario "owner provides new valid information" do
+    sign_in restaurant.user
+    visit edit_restaurant_path(restaurant)
+
+    fill_in("Description", with: "New description goes here")
+    click_button("Update Restaurant")
+    expect(page).to have_content("Restaurant updated!")
+  end
+
+  scenario "user tries to update a restaurant they don't own" do
+    sign_in user
+    visit restaurant_path(restaurant)
+
+    expect(page).not_to have_content("Edit restaurant")
+  end
+end
+
+feature "user deletes a restaurant they own", %Q{
+  As a restaurant owner
+  I want to delete my restaurant
+  Because it no longer exists
+} do
+
+  let!(:restaurant) { FactoryGirl.create(:restaurant) }
+
+  scenario "owner visits their own restaurant's details page" do
+    sign_in restaurant.user
+    visit restaurant_path(restaurant)
+
+    expect(page).to have_content("Delete restaurant")
+  end
+
+  scenario "owner deletes their own restaurant" do
+    sign_in restaurant.user
+    visit restaurant_path(restaurant)
+    click_link("Delete restaurant")
+
+    expect(page).to have_content("Restaurant deleted!")
+  end
+
 end
