@@ -93,6 +93,15 @@ feature "user edits a restaurant they own", %Q{
     expect(page).to have_content("Restaurant updated!")
   end
 
+  scenario "user attempts to update restaurant with invalid information" do
+    sign_in restaurant.user
+    visit edit_restaurant_path(restaurant)
+
+    fill_in("Name", with: "")
+    click_button("Update Restaurant")
+    expect(page).to have_content("Name can't be blank")
+  end
+
   scenario "user tries to update a restaurant they don't own" do
     sign_in user
     visit restaurant_path(restaurant)
