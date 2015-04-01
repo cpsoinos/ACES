@@ -2,7 +2,6 @@
   <strong>Name:</strong>
   <%= @restaurant.name %>
 </p>
-
 <p>
   <strong>Address:</strong>
   <%= @restaurant.street_address %>
@@ -44,6 +43,14 @@
 </p>
 
 <%= link_to 'Back', restaurants_path %>
+
+<br />
+<% if current_user.try(:admin?) || current_user.id == @restaurant.user_id %>
+  <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+  <br />
+  <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
 <% if user_signed_in? %>
   <%= link_to 'Write Review', new_restaurant_review_path(@restaurant) %>
 <% end %>
@@ -57,4 +64,4 @@
                   data: { confirm: 'Are you sure?' } %>
     <%= link_to 'Edit Review', edit_restaurant_review_path(r.restaurant_id, r.id) %>
   <% end %>
-<%end%>
+<% end %>
