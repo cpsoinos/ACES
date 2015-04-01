@@ -7,7 +7,7 @@
     <%= f.label :rating %> <br>
     <% Review::RATINGS.each do |c| %>
       <%= f.radio_button(:rating, c)%>
-      <%= f.label("rating_#{c.to_s}", c) %>
+      <%= f.label("rating_#{c}", c) %>
     <% end %>
   </p>
   <%= f.submit%>
