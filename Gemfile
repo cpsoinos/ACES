@@ -38,6 +38,8 @@ group :development, :test do
   gem 'spring'
   #Better errors. AT
   gem 'better_errors'
+  # testing this gem out
+  gem 'fuubar'
 end
 
 group :test do

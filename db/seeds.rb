@@ -22,26 +22,58 @@ Waban
 Worcester
 Purvis]
 
-name = ['Del Taco',
-    'Zaxbys',
-    'Popeyes Louisiana Kitchen',
-    'El Pollo Loco',
-    'Chipotle Mexican Grill',
-    'Little Caesars',
-    'Papa Johns',
-    'Dominos Pizza',
-    'Steak n Shake',
-    'Pizza Hut',
-    'Dunkin Donuts',
-    'Fatburger',
-    'Long John Silvers',
-    'Jamba Juice',
-    'Quiznos',
-    'Wendys',
-    'Tim Hortons',
-    'In-N-Out Burger',
-    'Wingstop',
-    'Dairy Queen']
+name = [
+    "Molly Ward Gardens",
+    "Cambridge House",
+    "Georgian",
+    "Stonehouse Restaurant",
+    "Cafe Song Inc",
+    "Seasons Bistro & Grille",
+    "Zipper Factory Tavern",
+    "Bread's Arisin'",
+    "Chai Peking Chinese Restaurant",
+    "Heartline Cafe",
+    "Grants Restaurant & Bar",
+    "Pistone's Italian Inn",
+    "Pentimento",
+    "Paddy O'Brian's",
+    "Paulette's",
+    "Appalachia American Grill",
+    "Clery's Bar & Restaurant",
+    "Bistros Gourmet Deli & Pizza",
+    "Mac Gregor's Grill & Tap Room",
+    "J P China",
+    "Nick N Willy's Pizza",
+    "Joe Morley's Smoked Beef",
+    "Mr Jim's Pizza",
+    "Colonial Steak House",
+    "Harbor Lights",
+    "Patio Restaurants",
+    "PO-PO Family Restaurant",
+    "Coogans",
+    "Monticello Restaurant",
+    "Cozymel's Mexican Grill",
+    "Laudisio Ristorante Italiano",
+    "Frontroom Pizza",
+    "City Dock Cafe",
+    "Food 101 At Highlands Llc",
+    "Shiki Japanese Restaurant",
+    "World Famous Heartland Grill",
+    "Taco John's",
+    "Pub House",
+    "Toozypatza Pizza",
+    "Alley Cantina",
+    "Tony Z's Italian Restaurante",
+    "Franklin's Tower",
+    "LA Cocina Mexicana",
+    "Hickory Tavern",
+    "Crescent City",
+    "Raoul's Velvet Room",
+    "Wahpeton Deli",
+    "Thai Pilin Restaurant",
+    "Lolita Restaurant",
+    "Old Angler's Inn"
+]
 
 street_address = ['Broad Street',
     'Lake Street',
@@ -144,11 +176,34 @@ zip_code = %w[86704
 69863
 82543]
 
-25.times do
+reviews = ["i love this place",
+           "this place has terrible food",
+           "i only go here on tuesdays",
+           "great, now i have food poisoning",
+           "dont eat the chicken",
+           "i went with here with my wife for our anniversary and she loved it but i thought it was the worst place ever",
+           "please tell me how to get back to this place!",
+           "there's alot of the same reviews on this page",
+           "dunkin donuts is probably my favourite place but im not too sure",
+           "theres always a strange smell at this place, but i kind of like it",
+           "I bring my chihuahua here and she likes the steak tartar the most, but personally i think its disgusting"]
+
+ratings = [1, 2, 3, 4, 5]
+
+50.times do
   Restaurant.find_or_create_by!(
     name: "#{name.sample}", street_address: "#{street_address.sample}",
     city: "#{city.sample}", state: "#{state.sample}",
     zip_code: "#{zip_code.sample}", description: "#{description.sample}",
     phone: '012-345-6789', reservations: r_and_d.sample, delivery: r_and_d.sample
     )
+end
+
+user = User.new(email: 'seed@seeder.com', password: 'seedpassword')
+user.save!
+
+Restaurant.all.each do |restaurant|
+  10.times do
+    restaurant.reviews.create(body: "#{reviews.sample.capitalize}", rating: ratings.sample, user_id: 1)
+  end
 end
