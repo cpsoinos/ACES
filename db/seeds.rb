@@ -23,56 +23,56 @@ Worcester
 Purvis]
 
 name = [
-    "Molly Ward Gardens",
-    "Cambridge House",
-    "Georgian",
-    "Stonehouse Restaurant",
-    "Cafe Song Inc",
-    "Seasons Bistro & Grille",
-    "Zipper Factory Tavern",
-    "Bread's Arisin'",
-    "Chai Peking Chinese Restaurant",
-    "Heartline Cafe",
-    "Grants Restaurant & Bar",
-    "Pistone's Italian Inn",
-    "Pentimento",
-    "Paddy O'Brian's",
-    "Paulette's",
-    "Appalachia American Grill",
-    "Clery's Bar & Restaurant",
-    "Bistros Gourmet Deli & Pizza",
-    "Mac Gregor's Grill & Tap Room",
-    "J P China",
-    "Nick N Willy's Pizza",
-    "Joe Morley's Smoked Beef",
-    "Mr Jim's Pizza",
-    "Colonial Steak House",
-    "Harbor Lights",
-    "Patio Restaurants",
-    "PO-PO Family Restaurant",
-    "Coogans",
-    "Monticello Restaurant",
-    "Cozymel's Mexican Grill",
-    "Laudisio Ristorante Italiano",
-    "Frontroom Pizza",
-    "City Dock Cafe",
-    "Food 101 At Highlands Llc",
-    "Shiki Japanese Restaurant",
-    "World Famous Heartland Grill",
-    "Taco John's",
-    "Pub House",
-    "Toozypatza Pizza",
-    "Alley Cantina",
-    "Tony Z's Italian Restaurante",
-    "Franklin's Tower",
-    "LA Cocina Mexicana",
-    "Hickory Tavern",
-    "Crescent City",
-    "Raoul's Velvet Room",
-    "Wahpeton Deli",
-    "Thai Pilin Restaurant",
-    "Lolita Restaurant",
-    "Old Angler's Inn"
+  "Molly Ward Gardens",
+  "Cambridge House",
+  "Georgian",
+  "Stonehouse Restaurant",
+  "Cafe Song Inc",
+  "Seasons Bistro & Grille",
+  "Zipper Factory Tavern",
+  "Bread's Arisin'",
+  "Chai Peking Chinese Restaurant",
+  "Heartline Cafe",
+  "Grants Restaurant & Bar",
+  "Pistone's Italian Inn",
+  "Pentimento",
+  "Paddy O'Brian's",
+  "Paulette's",
+  "Appalachia American Grill",
+  "Clery's Bar & Restaurant",
+  "Bistros Gourmet Deli & Pizza",
+  "Mac Gregor's Grill & Tap Room",
+  "J P China",
+  "Nick N Willy's Pizza",
+  "Joe Morley's Smoked Beef",
+  "Mr Jim's Pizza",
+  "Colonial Steak House",
+  "Harbor Lights",
+  "Patio Restaurants",
+  "PO-PO Family Restaurant",
+  "Coogans",
+  "Monticello Restaurant",
+  "Cozymel's Mexican Grill",
+  "Laudisio Ristorante Italiano",
+  "Frontroom Pizza",
+  "City Dock Cafe",
+  "Food 101 At Highlands Llc",
+  "Shiki Japanese Restaurant",
+  "World Famous Heartland Grill",
+  "Taco John's",
+  "Pub House",
+  "Toozypatza Pizza",
+  "Alley Cantina",
+  "Tony Z's Italian Restaurante",
+  "Franklin's Tower",
+  "LA Cocina Mexicana",
+  "Hickory Tavern",
+  "Crescent City",
+  "Raoul's Velvet Room",
+  "Wahpeton Deli",
+  "Thai Pilin Restaurant",
+  "Lolita Restaurant",
+  "Old Angler's Inn"
 ]
 
 street_address = ['Broad Street',
@@ -181,12 +181,16 @@ reviews = ["i love this place",
            "i only go here on tuesdays",
            "great, now i have food poisoning",
            "dont eat the chicken",
-           "i went with here with my wife for our anniversary and she loved it but i thought it was the worst place ever",
+           "i went with here with my wife for our anniversary
+           and she loved it but i thought it was the worst place ever",
            "please tell me how to get back to this place!",
            "there's alot of the same reviews on this page",
-           "dunkin donuts is probably my favourite place but im not too sure",
-           "theres always a strange smell at this place, but i kind of like it",
-           "I bring my chihuahua here and she likes the steak tartar the most, but personally i think its disgusting"]
+           "dunkin donuts is probably my favourite place but im not
+           too sure",
+           "theres always a strange smell at this place, but i kind
+           of like it",
+           "I bring my chihuahua here and she likes the steak tartar
+           the most, but personally i think its disgusting"]
 
 ratings = [1, 2, 3, 4, 5]
 
@@ -199,11 +203,14 @@ ratings = [1, 2, 3, 4, 5]
     )
 end
 
-user = User.new(email: 'seed@seeder.com', password: 'seedpassword')
+user = User.new(email: "seed@seeder.com", password: "seedpassword")
 user.save!
 
 Restaurant.all.each do |restaurant|
   10.times do
-    restaurant.reviews.create(body: "#{reviews.sample.capitalize}", rating: ratings.sample, user_id: 1)
+    restaurant.reviews.create(
+      body: "#{reviews.sample.capitalize}",
+      rating: ratings.sample, user_id: 1
+      )
   end
 end
