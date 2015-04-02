@@ -17,6 +17,14 @@ FactoryGirl.define do
     phone "123456789"
     reservations true
     delivery false
+    user
+  end
+
+  factory :review do
+    body 'great place'
+    rating '5'
+    restaurant
+    user
   end
 
 end
