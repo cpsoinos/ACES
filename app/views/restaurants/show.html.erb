@@ -60,8 +60,9 @@
 <% @restaurant.reviews.each do |r| %>
   <p>Rating:<%=r.rating%></p>
   <p>Review:<%=r.body%></p>
-  <%= button_to "Up vote", restaurant_review_votes_path(@restaurant, r, :upvote => true) %>
-  <input type="button" value="Down-vote" method="post">
+  <%= button_to "Up vote", review_upvotes_path(r) %>
+  <%= r.score %>
+  <%= button_to "Down vote", review_downvotes_path(r) %>
   <% if r.user == current_user %>
     <%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
                   method: :delete,

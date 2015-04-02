@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     :index, :show, :new, :edit,
     :create, :update, :destroy
   ] do
-    resources :reviews, only: [:show, :create, :destroy, :edit, :new, :update] do
-      resources :votes, only: [:new, :create, :edit, :update]
-    end
+    resources :reviews, only: [:show, :create, :destroy, :edit, :new, :update]
   end
 
+  resources :reviews, only: [:edit, :update] do
+    resources :upvotes, only: [:new, :create, :edit, :update]
+    resources :downvotes, only: [:new, :create, :edit, :update]
+  end
 end
