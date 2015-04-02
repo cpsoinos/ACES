@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/cpsoinos/Desktop/aces/app/models/user.rb": [
+      "/Users/ATasker/Desktop/ACES/app/models/user.rb": [
         1,
         null,
         null,
@@ -13,15 +13,81 @@
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/helpers/restaurants_helper.rb": [
+      "/Users/ATasker/Desktop/ACES/app/helpers/restaurants_helper.rb": [
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/helpers/reviews_helper.rb": [
+      "/Users/ATasker/Desktop/ACES/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/reviews_controller.rb": [
+      "/Users/ATasker/Desktop/ACES/app/controllers/restaurants_controller.rb": [
+        1,
+        null,
+        1,
+        31,
+        null,
+        null,
+        1,
+        16,
+        null,
+        null,
+        1,
+        3,
+        null,
+        null,
+        1,
+        2,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        2,
+        null,
+        2,
+        1,
+        1,
+        null,
+        1,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        4,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/ATasker/Desktop/ACES/app/controllers/application_controller.rb": [
+        1,
+        null,
+        null,
+        1,
+        null
+      ],
+      "/Users/ATasker/Desktop/ACES/app/controllers/reviews_controller.rb": [
         1,
         1,
         3,
@@ -80,14 +146,7 @@
         null,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/application_controller.rb": [
-        1,
-        null,
-        null,
-        1,
-        null
-      ],
-      "/Users/cpsoinos/Desktop/aces/app/models/restaurant.rb": [
+      "/Users/ATasker/Desktop/ACES/app/models/restaurant.rb": [
         1,
         1,
         1,
@@ -100,66 +159,7 @@
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/restaurants_controller.rb": [
-        1,
-        null,
-        1,
-        29,
-        null,
-        null,
-        1,
-        14,
-        null,
-        null,
-        1,
-        3,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        1,
-        2,
-        null,
-        2,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        2,
-        null,
-        2,
-        1,
-        1,
-        null,
-        1,
-        null,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        4,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/cpsoinos/Desktop/aces/app/models/review.rb": [
+      "/Users/ATasker/Desktop/ACES/app/models/review.rb": [
         1,
         1,
         1,
@@ -169,6 +169,6 @@
         null
       ]
     },
-    "timestamp": 1427919392
+    "timestamp": 1428003667
   }
 }
