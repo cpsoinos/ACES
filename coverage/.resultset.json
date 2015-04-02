@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/cpsoinos/Desktop/aces/app/models/user.rb": [
+      "/Users/user/ruby/aces/app/models/user.rb": [
         1,
         null,
         null,
@@ -13,15 +13,15 @@
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/helpers/restaurants_helper.rb": [
+      "/Users/user/ruby/aces/app/helpers/restaurants_helper.rb": [
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/helpers/reviews_helper.rb": [
+      "/Users/user/ruby/aces/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/reviews_controller.rb": [
+      "/Users/user/ruby/aces/app/controllers/reviews_controller.rb": [
         1,
         1,
         3,
@@ -80,14 +80,20 @@
         null,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/application_controller.rb": [
+      "/Users/user/ruby/aces/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/models/restaurant.rb": [
+      "/Users/user/ruby/aces/app/models/vote.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/user/ruby/aces/app/models/restaurant.rb": [
         1,
         1,
         1,
@@ -100,15 +106,15 @@
         1,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/controllers/restaurants_controller.rb": [
+      "/Users/user/ruby/aces/app/controllers/restaurants_controller.rb": [
         1,
         null,
         1,
-        29,
+        32,
         null,
         null,
         1,
-        14,
+        18,
         null,
         null,
         1,
@@ -159,16 +165,18 @@
         null,
         null
       ],
-      "/Users/cpsoinos/Desktop/aces/app/models/review.rb": [
+      "/Users/user/ruby/aces/app/models/review.rb": [
         1,
         1,
         1,
+        1,
+        null,
         1,
         1,
         1,
         null
       ]
     },
-    "timestamp": 1427919392
+    "timestamp": 1427992903
   }
 }

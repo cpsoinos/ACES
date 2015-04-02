@@ -45,10 +45,12 @@
 <%= link_to 'Back', restaurants_path %>
 
 <br />
-<% if current_user.try(:admin?) || current_user.id == @restaurant.user_id %>
-  <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
-  <br />
-  <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% if current_user != nil %>
+  <% if current_user.try(:admin?) || current_user.id == @restaurant.user_id %>
+    <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+    <br />
+    <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <% end %>
 <% end %>
 
 <% if user_signed_in? %>
@@ -58,6 +60,8 @@
 <% @restaurant.reviews.each do |r| %>
   <p>Rating:<%=r.rating%></p>
   <p>Review:<%=r.body%></p>
+  <%= button_to "Up vote", restaurant_review_votes_path(@restaurant, r, :upvote => true) %>
+  <input type="button" value="Down-vote" method="post">
   <% if r.user == current_user %>
     <%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
                   method: :delete,
