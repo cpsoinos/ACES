@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   belongs_to :restaurant
   belongs_to :user
-  has_many :votes
+  has_many :votes, dependent: :destroy
 
   validates :body, presence: true
   validates :rating, presence: true
