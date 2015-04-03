@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user votes on review", %Q{
+feature "user votes on review", %{
   As an authenticated user
   I want to vote a review
   so that people can view my opinion of the review
@@ -45,10 +45,9 @@ feature "user votes on review", %Q{
     expect(page).to have_content("You cannot vote twice on a single review")
     expect(page).to have_content("Score: 1")
   end
-
 end
 
-feature "unauthenticated user can't vote on review", %Q{
+feature "unauthenticated user can't vote on review", %{
   As an unauthenticated user
   I cannot vote a review
   because I am not signed in
