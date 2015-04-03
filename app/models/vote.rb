@@ -9,9 +9,9 @@ class Vote < ActiveRecord::Base
     notice = ""
     if self.score <= 0
       self.update(score: 1)
-      notice = "Vote added!"
+      notice = "Vote Recieved"
     else
-      notice = "You can't upvote more than once!"
+      notice = "You cannot vote twice on a single review"
     end
     notice
   end
@@ -20,11 +20,13 @@ class Vote < ActiveRecord::Base
     notice = ""
     if self.score >= 0
       self.update(score: -1)
-      notice = "Vote added!"
+      notice = "Vote Recieved"
     else
-      notice = "You can't downvote more than once!"
+      notice = "You cannot vote twice on a single review"
     end
     notice
   end
 
 end
+
+
