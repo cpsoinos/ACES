@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/user/ruby/aces/app/models/user.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/models/user.rb": [
         1,
         null,
         null,
@@ -13,15 +13,15 @@
         1,
         null
       ],
-      "/Users/user/ruby/aces/app/helpers/restaurants_helper.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/helpers/restaurants_helper.rb": [
         1,
         null
       ],
-      "/Users/user/ruby/aces/app/helpers/reviews_helper.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/helpers/reviews_helper.rb": [
         1,
         null
       ],
-      "/Users/user/ruby/aces/app/controllers/reviews_controller.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/controllers/reviews_controller.rb": [
         1,
         1,
         3,
@@ -80,48 +80,14 @@
         null,
         null
       ],
-      "/Users/user/ruby/aces/app/controllers/application_controller.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/controllers/application_controller.rb": [
         1,
         null,
         null,
         1,
         null
       ],
-      "/Users/user/ruby/aces/app/models/vote.rb": [
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        0,
-        null,
-        1,
-        null,
-        null,
-        1,
-        3,
-        3,
-        2,
-        2,
-        null,
-        1,
-        null,
-        3,
-        null,
-        null,
-        null,
-        null,
-        null
-      ],
-      "/Users/user/ruby/aces/app/models/restaurant.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/models/restaurant.rb": [
         1,
         1,
         1,
@@ -134,15 +100,15 @@
         1,
         null
       ],
-      "/Users/user/ruby/aces/app/controllers/restaurants_controller.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/controllers/restaurants_controller.rb": [
         1,
         null,
         1,
-        32,
+        33,
         null,
         null,
         1,
-        22,
+        25,
         null,
         null,
         1,
@@ -193,7 +159,7 @@
         null,
         null
       ],
-      "/Users/user/ruby/aces/app/models/review.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/models/review.rb": [
         1,
         1,
         1,
@@ -204,25 +170,59 @@
         1,
         null,
         1,
-        14,
-        14,
-        4,
+        17,
+        17,
+        6,
         null,
-        14,
+        17,
         null,
         null,
         null,
         null
       ],
-      "/Users/user/ruby/aces/app/controllers/upvotes_controller.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/models/vote.rb": [
+        1,
+        1,
         1,
         null,
         1,
         1,
+        null,
         1,
+        3,
+        3,
+        2,
+        2,
+        null,
         1,
+        null,
+        3,
+        null,
+        null,
         1,
+        3,
+        3,
+        2,
+        2,
+        null,
         1,
+        null,
+        3,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "/Users/cpsoinos/Desktop/aces/app/controllers/upvotes_controller.rb": [
+        1,
+        null,
+        1,
+        3,
+        3,
+        3,
+        3,
+        3,
         null,
         0,
         null,
@@ -230,7 +230,7 @@
         null,
         null
       ],
-      "/Users/user/ruby/aces/app/controllers/downvotes_controller.rb": [
+      "/Users/cpsoinos/Desktop/aces/app/controllers/downvotes_controller.rb": [
         1,
         null,
         1,
@@ -247,6 +247,6 @@
         null
       ]
     },
-    "timestamp": 1428030274
+    "timestamp": 1428031676
   }
 }
