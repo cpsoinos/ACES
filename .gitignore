@@ -15,4 +15,5 @@
 # Ignore .env file(s). 3/30 AT
 /.env
 
-/coverage
+# Ignore coverage files 4/3 CP
+/coverage/*

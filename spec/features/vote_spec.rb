@@ -15,7 +15,7 @@ feature "user votes on review", %Q{
     visit restaurant_path(review.restaurant)
     click_button("Up-vote")
 
-    expect(page).to have_content("Vote Recieved")
+    expect(page).to have_content("Vote Received")
     expect(page).to have_content("Score: 1")
   end
 
@@ -23,7 +23,7 @@ feature "user votes on review", %Q{
     visit restaurant_path(review.restaurant)
     click_button("Down-vote")
 
-    expect(page).to have_content("Vote Recieved")
+    expect(page).to have_content("Vote Received")
     expect(page).to have_content("Score: -1")
   end
 
