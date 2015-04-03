@@ -12,7 +12,7 @@ feature "user votes on review", %Q{
     sign_in user
   end
 
-  scenario "user successfully up votes review" do
+  scenario "user successfully up-votes review" do
     visit restaurant_path(review.restaurant)
     click_button("Up-vote")
 
@@ -20,7 +20,7 @@ feature "user votes on review", %Q{
     expect(page).to have_content("Score: 1")
   end
 
-  scenario "user successfully down votes review" do
+  scenario "user successfully down-votes review" do
     visit restaurant_path(review.restaurant)
     click_button("Down-vote")
 
@@ -28,13 +28,24 @@ feature "user votes on review", %Q{
     expect(page).to have_content("Score: -1")
   end
 
-  scenario "user cannot vote more than once" do
+  scenario "user cannot down-vote a review more than once" do
     visit restaurant_path(review.restaurant)
     click_button("Down-vote")
     click_button("Down-vote")
+
     expect(page).to have_content("You cannot vote twice on a single review")
     expect(page).to have_content("Score: -1")
   end
+
+  scenario "user cannot up-vote a review more than once" do
+    visit restaurant_path(review.restaurant)
+    click_button("Up-vote")
+    click_button("Up-vote")
+
+    expect(page).to have_content("You cannot vote twice on a single review")
+    expect(page).to have_content("Score: 1")
+  end
+
 end
 
 feature "unauthenticated user can't vote on review", %Q{
@@ -51,5 +62,3 @@ feature "unauthenticated user can't vote on review", %Q{
     expect(page).to have_content("Log in")
   end
 end
-
-
