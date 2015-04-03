@@ -1,11 +1,10 @@
 require "rails_helper"
 
-feature "user votes on review", %{
+feature "user votes on review", %Q{
   As an authenticated user
   I want to vote a review
   so that people can view my opinion of the review
 } do
-
   let!(:review) { FactoryGirl.create(:review) }
   let!(:user) { FactoryGirl.create(:user) }
   before :each do
@@ -47,12 +46,11 @@ feature "user votes on review", %{
   end
 end
 
-feature "unauthenticated user can't vote on review", %{
+feature "unauthenticated user can't vote on review", %Q{
   As an unauthenticated user
   I cannot vote a review
   because I am not signed in
 } do
-
   let!(:review) { FactoryGirl.create(:review) }
 
   scenario "visitor tries to down vote on review redirects to signin" do

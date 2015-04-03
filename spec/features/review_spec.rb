@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "user creates review", %{
+feature "user creates review", %Q{
   As an authenticated user
   I want to create a review
   so that people can view my recommendation
@@ -39,7 +39,7 @@ feature "user creates review", %{
   end
 end
 
-feature "user deletes review", %{
+feature "user deletes review", %Q{
   As an authenticated user
   I want to create a review
   so that people can view my recommendation
@@ -74,7 +74,7 @@ feature "user deletes review", %{
   end
 end
 
-feature "guest can't write a review", %{
+feature "guest can't write a review", %Q{
   As a guest
   I should not be able to review a restaurant
   Because I am not signed in
@@ -89,7 +89,7 @@ feature "guest can't write a review", %{
   end
 end
 
-feature "user edits review", %{
+feature "user edits review", %Q{
   As an authenticated user
   I want to edit a review I wrote
   so that I can change my mind

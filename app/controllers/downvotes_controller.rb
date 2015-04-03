@@ -3,8 +3,7 @@ class DownvotesController < ApplicationController
     if current_user
       @review = Review.find(params[:review_id])
       @vote = @review.votes.find_or_create_by(user: current_user)
-      flash[:notice] = @vote.decrement
-      redirect_to restaurant_path(@review.restaurant)
+      redirect_to restaurant_path(@review.restaurant), notice: @vote.decrement
     else
       redirect_to new_user_session_path
     end

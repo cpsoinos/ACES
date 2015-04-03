@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "navigates to index page", %{
+feature "navigates to index page", %Q{
   As an authenticated user
   I want to view a list of restaurants
   So that I can pick items to review
@@ -68,7 +68,7 @@ feature "navigates to index page", %{
   end
 end
 
-feature "user edits a restaurant they own", %{
+feature "user edits a restaurant they own", %Q{
   As a restaurant owner
   I want to edit my restaurant
   So others can see correct details
@@ -110,7 +110,7 @@ feature "user edits a restaurant they own", %{
   end
 end
 
-feature "user deletes a restaurant they own", %{
+feature "user deletes a restaurant they own", %Q{
   As a restaurant owner
   I want to delete my restaurant
   Because it no longer exists
