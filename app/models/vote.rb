@@ -7,8 +7,8 @@ class Vote < ActiveRecord::Base
 
   def increment
     notice = ""
-    if self.score <= 0
-      self.update(score: 1)
+    if score <= 0
+      update(score: 1)
       notice = "Vote Recieved"
     else
       notice = "You cannot vote twice on a single review"
@@ -18,15 +18,12 @@ class Vote < ActiveRecord::Base
 
   def decrement
     notice = ""
-    if self.score >= 0
-      self.update(score: -1)
+    if score >= 0
+      update(score: -1)
       notice = "Vote Recieved"
     else
       notice = "You cannot vote twice on a single review"
     end
     notice
   end
-
 end
-
-

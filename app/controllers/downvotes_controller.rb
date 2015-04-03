@@ -1,5 +1,4 @@
 class DownvotesController < ApplicationController
-
   def create
     if current_user
       @review = Review.find(params[:review_id])
@@ -10,5 +9,4 @@ class DownvotesController < ApplicationController
       redirect_to new_user_session_path
     end
   end
-
 end
