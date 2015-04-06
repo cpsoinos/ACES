@@ -9,6 +9,20 @@ feature "admin can modify and delete users", %Q{
   let!(:user) { FactoryGirl.create(:user) }
   let!(:admin) { FactoryGirl.create(:user, role: "admin") }
 
+  scenario "admin sees link to admin section" do
+    sign_in admin
+    visit root_path
+
+    expect(page).to have_link("Admin")
+  end
+
+  scenario "user should not see link to admin section" do
+    sign_in user
+    visit root_path
+
+    expect(page).to_not have_link("Admin")
+  end
+
   scenario "admin views list of users" do
     sign_in admin
     visit users_path
