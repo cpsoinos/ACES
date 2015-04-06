@@ -60,3 +60,19 @@ feature "unauthenticated user can't vote on review", %Q{
     expect(page).not_to have_button("Down-vote")
   end
 end
+
+feature "visitor cannot vote on a review", %Q{
+  As a visitor
+  I shouldn't be able to vote on a review
+  Because I am not signed in
+} do
+
+  let!(:review) { FactoryGirl.create(:review) }
+
+  scenario "visitor views a restaurant's reviews" do
+    visit restaurant_path(review.restaurant)
+
+    expect(page).to_not have_button("Up-vote")
+    expect(page).to_not have_button("Down-vote")
+  end
+end

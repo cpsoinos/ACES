@@ -57,8 +57,6 @@ class RestaurantsController < ApplicationController
 
   def authorize_user
     @restaurant = Restaurant.find(params[:id])
-    if !user_signed_in? || !@restaurant.editable_by?(current_user)
-      not_found
-    end
+    user_signed_in? && @restaurant.editable_by?(current_user)
   end
 end

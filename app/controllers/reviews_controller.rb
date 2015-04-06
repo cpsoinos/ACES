@@ -38,16 +38,11 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @restaurant = @review.restaurant
 
-    if @review.user_id != current_user.id
-      flash[:notice] = "You cannot edit another user's review!"
-      render :"restaurants/show"
+    if @review.update(review_params)
+      flash[:notice] = "Review updated!"
+      redirect_to @restaurant
     else
-      if @review.update(review_params)
-        flash[:notice] = "Review updated!"
-        redirect_to @restaurant
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 
@@ -59,8 +54,6 @@ class ReviewsController < ApplicationController
 
   def authorize_user
     @review = Review.find(params[:id])
-    if !user_signed_in? || !@review.editable_by?(current_user)
-      not_found
-    end
+    user_signed_in? && @review.editable_by?(current_user)
   end
 end
