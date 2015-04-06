@@ -10,6 +10,7 @@ Rails.application.configure do
 
   config.assets.js_compressor = :uglifier
 
+  config.assets.compress = true
   config.assets.compile = true
   config.assets.digest = true
 
