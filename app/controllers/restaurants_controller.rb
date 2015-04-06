@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :authorize_user, except: [:index, :show, :create, :new]
 
   def index
     @restaurants = Restaurant.order("name ASC").page(params[:page])
@@ -52,6 +53,13 @@ class RestaurantsController < ApplicationController
       :name, :street_address, :city, :state, :zip_code, :description,
       :phone, :reservations, :delivery, :category_id, :user_id
       )
+  end
+
+  def authorize_user
+    @restaurant = Restaurant.find(params[:id])
+    if !user_signed_in? || !@restaurant.editable_by?(current_user)
+      raise ActionController::RoutingError.new("Not Found")
+    end
   end
 
 end

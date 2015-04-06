@@ -45,8 +45,9 @@
 <%= link_to 'Back', restaurants_path %>
 
 <br />
+
 <% if current_user != nil %>
-  <% if current_user.try(:admin?) || current_user.id == @restaurant.user_id %>
+  <% if @restaurant.editable_by?(current_user) %>
     <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
     <br />
     <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
