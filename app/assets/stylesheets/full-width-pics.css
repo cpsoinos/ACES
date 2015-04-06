@@ -1,52 +1,47 @@
-/*!
- * Start Bootstrap - Full Width Pics HTML Template (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
 @import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,300,600);
 
 body {
-    margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
-    background-color: #F8F8F8 ;
+  margin-top: 50px; /* Required margin for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+  background-color: #F8F8F8 ;
 }
 
 h1 {
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 h2 {
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 h3 {
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 h4 {
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .nav {
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .image-bg-fluid-height,
 .image-bg-fixed-height {
-    text-align: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  text-align: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 .image-bg-fluid-height {
 	background: url('../assets/china.png') no-repeat center center scroll;
-    padding: 100px 0;
-    filter: blur(0px) grayscale(0%);
+  padding: 100px 0;
+  filter: blur(0px) grayscale(0%);
 }
 
 .image-bg-fixed-height {
 	background: url('../assets/china.png') no-repeat center center scroll;
-    height: 450px;
-    filter: blur(0px) grayscale(0%);
+  height: 450px;
+  filter: blur(0px) grayscale(0%);
 }
 
 .img-center {
@@ -54,67 +49,63 @@ h4 {
 }
 
 section {
-    padding: 75px 0;
+  padding: 75px 0;
 }
 
 .section-heading {
-    margin: 30px 0;
-    font-size: 4em;
+  margin: 30px 0;
+  font-size: 4em;
 }
 
 .section-lead {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 .section-paragraph {
-    margin: 30px 0;
+  margin: 30px 0;
 }
 
 footer {
-    margin: 50px 0;
+  margin: 50px 0;
 }
 
 @media(max-width:768px) {
-    section {
-        padding-top: 25px;
-        padding-bottom: 25px;
-    }
+  section {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
 
-    .section-heading {
-        font-size: 2em;
-    }
+  .section-heading {
+    font-size: 2em;
+  }
 }
 
 .thumbnail {
-    height: 75px;
-    width: 75px;
+  height: 75px;
+  width: 75px;
 }
 
 .white_box {
-    background-color: #ffffff;
-    padding: 10px;
+  background-color: #ffffff;
+  padding: 10px;
 }
 
 .red-text {
 
-    color: #ff4c4c;
+  color: #ff4c4c;
 }
 
 .grey {
-    color: #999;
-    font-size: 0.8em;
+  color: #999;
+  font-size: 0.8em;
 }
 
 .rice-bowl {
-    width: 130px;
-    height: auto;
-    padding-bottom: 6px;
+  width: 130px;
+  height: auto;
+  padding-bottom: 6px;
 }
 
 .right-border {
-    border-right: solid thin #999;
+  border-right: solid thin #999;
 }
-
-
-
-
