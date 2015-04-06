@@ -53,9 +53,10 @@ feature "unauthenticated user can't vote on review", %Q{
 } do
   let!(:review) { FactoryGirl.create(:review) }
 
-  scenario "visitor tries to down vote on review redirects to signin" do
+  scenario "visitor can't vote on review" do
     visit restaurant_path(review.restaurant)
-    click_button("Down-vote")
-    expect(page).to have_content("Log in")
+
+    expect(page).not_to have_button("Up-vote")
+    expect(page).not_to have_button("Down-vote")
   end
 end

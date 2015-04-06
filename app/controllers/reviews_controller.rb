@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authorize_user, except: [:create, :new]
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
@@ -54,4 +56,12 @@ class ReviewsController < ApplicationController
   def review_params
     params.require(:review).permit(:rating, :body)
   end
+
+  def authorize_user
+    @review = Review.find(params[:id])
+    if !user_signed_in? || !@review.editable_by?(current_user)
+      raise ActionController::RoutingError.new("Not Found")
+    end
+  end
+
 end
