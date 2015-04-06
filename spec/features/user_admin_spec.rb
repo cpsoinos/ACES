@@ -12,12 +12,14 @@ feature "admin can modify and delete users", %Q{
   scenario "admin views list of users" do
     sign_in admin
     visit users_path
+
     expect(page).to have_content(user.email)
   end
 
   scenario "user attempts to view list of users" do
     sign_in user
     visit users_path
+
     expect(page).to have_content("Not Found")
   end
 
@@ -25,6 +27,7 @@ feature "admin can modify and delete users", %Q{
     sign_in admin
     visit users_path
     click_on("Delete", match: :first)
+
     expect(page).to have_content("User deleted!")
   end
 
@@ -32,6 +35,34 @@ feature "admin can modify and delete users", %Q{
     sign_in admin
     visit users_path
     click_on("Edit", match: :first)
+
     expect(page).to have_button("Update User")
+  end
+
+  scenario "admin edits user email" do
+    sign_in admin
+    visit edit_user_path(user)
+    fill_in "Email", with: "new_email@somewhere_else.com"
+    click_button("Update User")
+
+    expect(page).to have_content("User updated!")
+  end
+
+  scenario "admin edits role" do
+    sign_in admin
+    visit edit_user_path(user)
+    select("admin", from: "user_role")
+    click_button("Update User")
+
+    expect(page).to have_content("User updated!")
+  end
+
+  scenario "admin doesn't provide an email" do
+    sign_in admin
+    visit edit_user_path(user)
+    fill_in "Email", with: ""
+    click_button("Update User")
+
+    expect(page).to have_content("Email can't be blank")
   end
 end
