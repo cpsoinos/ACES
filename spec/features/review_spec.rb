@@ -63,15 +63,6 @@ feature "user deletes review", %Q{
     expect(page).to have_content(review.body)
     expect(page).not_to have_content("Delete Review")
   end
-
-  scenario "user cannot delete other user's review from review edit page" do
-    sign_in user
-    visit edit_restaurant_review_path(review.restaurant, review)
-    fill_in "Body", with: "horrible restaurant"
-    choose("5")
-    click_button("Update Review")
-    expect(page).to have_content("You cannot edit another user's review!")
-  end
 end
 
 feature "guest can't write a review", %Q{

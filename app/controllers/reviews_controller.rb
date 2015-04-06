@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authorize_user, except: [:create, :new]
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
@@ -36,16 +38,11 @@ class ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @restaurant = @review.restaurant
 
-    if @review.user_id != current_user.id
-      flash[:notice] = "You cannot edit another user's review!"
-      render :"restaurants/show"
+    if @review.update(review_params)
+      flash[:notice] = "Review updated!"
+      redirect_to @restaurant
     else
-      if @review.update(review_params)
-        flash[:notice] = "Review updated!"
-        redirect_to @restaurant
-      else
-        render :edit
-      end
+      render :edit
     end
   end
 
@@ -53,5 +50,10 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :body)
+  end
+
+  def authorize_user
+    @review = Review.find(params[:id])
+    user_signed_in? && @review.editable_by?(current_user)
   end
 end

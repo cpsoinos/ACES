@@ -9,8 +9,6 @@ class DownvotesController < ApplicationController
         flash[:notice] = "You cannot vote twice on a single review"
       end
       redirect_to restaurant_path(@review.restaurant)
-    else
-      redirect_to new_user_session_path
     end
   end
 end

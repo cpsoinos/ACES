@@ -24,4 +24,7 @@ class Restaurant < ActiveRecord::Base
     top_array.flatten(1)
   end
 
+  def editable_by?(current_user)
+    current_user.role == "admin" || current_user == user
+  end
 end
