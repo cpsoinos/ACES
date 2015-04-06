@@ -8,4 +8,8 @@ class Restaurant < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true
   validates :zip_code, presence: true
+
+  def editable_by?(current_user)
+    current_user.role == "admin" || current_user == user
+  end
 end

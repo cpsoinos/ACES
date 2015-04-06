@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  before_action :authorize_user, except: [:index, :show, :create, :new]
 
   def index
     @restaurants = Restaurant.order("name ASC").page(params[:page])
@@ -54,4 +55,8 @@ class RestaurantsController < ApplicationController
       )
   end
 
+  def authorize_user
+    @restaurant = Restaurant.find(params[:id])
+    user_signed_in? && @restaurant.editable_by?(current_user)
+  end
 end
