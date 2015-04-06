@@ -1,31 +1,60 @@
-<h1>All restaurants</h1>
-
-<% if user_signed_in? %>
+<br />
+<div class="pull-right grey">
+  <% if user_signed_in? %>
   <%= link_to 'New restaurant', new_restaurant_path %>
-<% else %>
+  <% else %>
   <p>Please<%= link_to ' sign in', new_user_session_path %> to create a new restaurant</p>
-<% end %>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip</th>
-  </tr>
-
-  <% @restaurants.each do |restaurant| %>
-    <tr>
-      <td><%= link_to restaurant.name, restaurant_path(restaurant)
- %></td>
-      <td><%= restaurant.street_address %></td>
-      <td><%= restaurant.city %></td>
-      <td><%= restaurant.state %></td>
-      <td><%= restaurant.zip_code %></td>
-    </tr>
   <% end %>
-</table>
+</div>
+<br />
+<br />
 
-<%= paginate @restaurants %>
+<div class="white_box">
+  <div class="row">
+    <div class="col-sm-8 right-border">
+      <h4 class="text-center">Chinatown's Best Eats</h4>
+      <hr>
+      <% @restaurants.each do |restaurant| %>
+      <div class="media">
+        <div class="media-left">
+          <a href="#">
+            <img class="thumbnail" src="assets/placeholder.jpg" alt="..."/>
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= link_to restaurant.name, restaurant_path(restaurant)%></h4>
+          <img class="rice-bowl" src="assets/bowl-<%= restaurant.average_rating %>.png">
+          <div class="description"><%= restaurant.description %></div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-sm-4">
+      <h4 class="text-center">Todays Top Picks</h4>
+      <hr>
+        <% Restaurant.top_restaurants.each do |restaurant| %>
+        <div class="top-picks">
+          <p><h4 class="media-heading"><%= link_to restaurant[0].name, restaurant_path(restaurant)%></h4></p>
+          <p><img class="rice-bowl" src="assets/bowl-<%= restaurant[0].average_rating %>.png"></p>
+          <p><%= restaurant[0].phone %></p>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+
+  <%= paginate @restaurants %>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Copyright &copy; ACES 2015</p>
+        </div>
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container -->
+  </footer>
 

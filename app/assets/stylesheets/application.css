@@ -12,6 +12,9 @@
  *
  *= require_tree .
  *= require_self
- *= require foundation_and_overrides
+ *= require bootstrap.min.css
+ *= require bootstrap.css
+ *= require full-width-pics.css
+
 
  */

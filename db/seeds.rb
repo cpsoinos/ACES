@@ -147,11 +147,28 @@ Wisconsin
 Wyoming
 ]
 
-description = ['Italian fine dining',
-               'Oldest established pizza place',
-               '24 hour burger joint',
-               'Oyster house',
-               'American bar & grill']
+reviews = ["Get there early. This joint is small and intimate, and if you don't get there early you'll get sat at the bar in the back by the kitchen doors.
+            As far as ambiance goes, it's cozy. The food is good but not the best thing I ate while in Boston. If you're limited on time, this isn't the destination for you.
+            I ate the Lobster Roll neet (roll and buttered lobster). My husband has some unmemorable dish.",
+           "Come early or you'll end up waiting.
+            Variety of oysters which make a great appetizer and fun, friendly service!
+            Hot lobster roll is the way to go!
+            Fish tacos were definitely something different and enjoyable.",
+           "Our first trip to Boston as a family on our 8th grade son's Spring
+           Break and we stopped in for some fresh seafood and they delivered!
+           The oysters, Ipswich clams, arugula salad, North End Cioppino and
+           Lobster Spaghettini were all delicious.  Highly recommend the food
+           and the guys behind the counter/bar where we were seated provided
+           good service!",
+           "I came on a weekday so there was no wait! Ordered a glass of Chardonnay
+           and a dozen oysters wellfleets, katama bay, kumamamoto, and kusshi.
+           My favorites are kumamamotos and my new fav is the kusshi! So sweet
+           and all the oysters super fresh that I had to get 6 more.",
+           "We tried to eat here at around 8:30 on a Saturday night and were
+           told it was a two hour wait, and that we couldn't wait, because the
+           kitchen closes at 9:30. Closing is at 10:30. Soo...basically they told
+           us to get lost because they wanted to close the kitchen prior to what
+           they advertise as closing hours."]
 
 r_and_d = [true, false]
 
@@ -176,19 +193,24 @@ zip_code = %w[86704
 69863
 82543]
 
-reviews = ["i love this place",
-           "this place has terrible food",
-           "i only go here on tuesdays",
-           "great, now i have food poisoning",
-           "dont eat the chicken",
-           "i went with here with my wife for our anniversary
+description = ["They have some signature dishes like pumpkin tortellini
+            and butternut squash ravioli that must be tried to be believed.",
+           "My husband had the butternut squash ravioli and it was seriously
+           the most amazing taste!",
+           "I recommend the Cacio e Pepe pizza and the baked ricotta appetizer,
+           hands down.",
+           "We had the Cacio e pepe Pizza and a Margherita Pizza, they were delicious!",
+           "The dining area was very clean and has a view into the open kitchen.",
+           "I went with here with my wife for our anniversary
            and she loved it but i thought it was the worst place ever",
-           "please tell me how to get back to this place!",
-           "there's alot of the same reviews on this page",
-           "dunkin donuts is probably my favourite place but im not
-           too sure",
-           "theres always a strange smell at this place, but i kind
-           of like it",
+           "The yuzu kosho aioli rocked, and the squid ink was a powerful flavor,
+           a great addition to the oyster.",
+           "Our server was absolutely incredible and even gave us powdered-foie
+           gras on the house.",
+           "(Lucky 8) Foie Gras, balsamic chocolate kabayaki, raisin cocoa pulp,
+           sip of aged sake.",
+           "My favorite dish is the lobster roll -while a bit pricy,
+           it is the best and I always get it",
            "I bring my chihuahua here and she likes the steak tartar
            the most, but personally i think its disgusting"]
 
