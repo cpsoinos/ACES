@@ -60,8 +60,7 @@ class ReviewsController < ApplicationController
   def authorize_user
     @review = Review.find(params[:id])
     if !user_signed_in? || !@review.editable_by?(current_user)
-      raise ActionController::RoutingError.new("Not Found")
+      not_found
     end
   end
-
 end

@@ -14,5 +14,4 @@ class Review < ActiveRecord::Base
   def editable_by?(current_user)
     current_user.role == "admin" || current_user == user
   end
-
 end
