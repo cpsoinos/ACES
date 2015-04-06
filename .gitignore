@@ -16,4 +16,4 @@
 /.env
 
 # Ignore coverage files 4/3 CP
-/coverage/*
+coverage/

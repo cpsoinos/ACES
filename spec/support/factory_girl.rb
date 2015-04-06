@@ -27,4 +27,9 @@ FactoryGirl.define do
     user
   end
 
+  factory :vote do
+    user
+    review
+  end
+
 end
