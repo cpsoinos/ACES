@@ -58,6 +58,7 @@
 <% end %>
 
 <% @restaurant.reviews.each do |r| %>
+<<<<<<< HEAD
   <p>Rating:<%=r.rating%></p>
   <p>Review:<%=r.body%></p>
   <%= button_to "Up-vote", review_upvotes_path(r) %>
