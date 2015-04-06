@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Restaurant, type: :model do
-
   describe "#user" do
     it "is not editable by user if the owner is not user" do
       restaurant = FactoryGirl.create(:restaurant)
