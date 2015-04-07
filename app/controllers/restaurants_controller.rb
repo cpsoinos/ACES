@@ -2,7 +2,13 @@ class RestaurantsController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :create, :new]
 
   def index
-    @restaurants = Restaurant.order("name ASC").page(params[:page])
+    if params[:search_text].present?
+      @restaurants =
+        Restaurant.search(params[:search_text]).order("name ASC")
+        .page(params[:page])
+    else
+      @restaurants = Restaurant.order("name ASC").page(params[:page])
+    end
   end
 
   def show
