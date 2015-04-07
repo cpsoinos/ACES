@@ -10,8 +10,8 @@ class Restaurant < ActiveRecord::Base
   validates :zip_code, presence: true
 
   def average_rating
-    if self.reviews.count > 0
-      self.reviews.sum(:rating)/self.reviews.count
+    if reviews.count > 0
+      reviews.sum(:rating) / reviews.count
     end
   end
 
@@ -39,7 +39,7 @@ class Restaurant < ActiveRecord::Base
       or reviews.body ILIKE ?
     }
     Restaurant.joins(:reviews).where(
-    [sql, "%#{query}%", "%#{query}%", "%#{query}%"]
+      [sql, "%#{query}%", "%#{query}%", "%#{query}%"]
     ).distinct
   end
 end
