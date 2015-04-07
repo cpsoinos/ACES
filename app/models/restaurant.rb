@@ -42,5 +42,4 @@ class Restaurant < ActiveRecord::Base
     [sql, "%#{query}%", "%#{query}%", "%#{query}%"]
     ).distinct
   end
-
 end
