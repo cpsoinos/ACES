@@ -1,6 +1,4 @@
 require 'rails_helper'
-<<<<<<< HEAD
-=======
 
 RSpec.describe Restaurant, type: :model do
   describe "#user" do
@@ -16,4 +14,3 @@ RSpec.describe Restaurant, type: :model do
     end
   end
 end
->>>>>>> master

@@ -41,6 +41,7 @@ group :development, :test do
   gem 'better_errors'
   # testing this gem out
   gem 'fuubar'
+  gem 'pry-rails'
 end
 
 group :test do
