@@ -1,5 +1,7 @@
 <h1>Edit User</h1>
 
+<%= image_tag user.avatar %>
+
 <% if @user.errors.any? %>
   <div id="error_explanation">
     <h2>
@@ -28,5 +30,5 @@
   <p>
     <%= f.submit %>
   </p>
-  
+
 <% end %>

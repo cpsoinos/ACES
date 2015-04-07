@@ -26,6 +26,7 @@ gem 'carrierwave'
 gem 'kaminari'
 # Adding fog for Amazon S3 photo storing purposes. AT
 gem 'fog'
+gem 'fog-aws'
 # gem to add us states
 gem 'country_state_select'
 

@@ -349,6 +349,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl
   fog
+  fog-aws
   foundation-rails
   fuubar
   jbuilder (~> 2.0)
