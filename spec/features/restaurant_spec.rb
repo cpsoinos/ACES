@@ -8,6 +8,7 @@ feature "navigates to index page", %Q{
 
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
   let!(:user) { FactoryGirl.create(:user) }
+  let!(:review) { FactoryGirl.create(:review) }
   before :each do
     sign_in user
   end
@@ -65,6 +66,30 @@ feature "navigates to index page", %Q{
     expect(page).to have_content(restaurant.reservations)
     expect(page).to have_content("Delivery")
     expect(page).to have_content(restaurant.delivery)
+  end
+
+  scenario "user searches for a restaurant by name" do
+    visit restaurants_path
+    fill_in "search_text", with: review.restaurant.name
+    click_button "Search"
+
+    expect(page).to have_content(review.restaurant.name)
+  end
+
+  scenario "user searches for a restaurant by description" do
+    visit restaurants_path
+    fill_in "search_text", with: review.restaurant.description.split(" ").first
+    click_button "Search"
+
+    expect(page).to have_content(review.restaurant.name)
+  end
+
+  scenario "user searches for a restaurant by review content" do
+    visit restaurants_path
+    fill_in "search_text", with: review.body.split(" ").first
+    click_button "Search"
+
+    expect(page).to have_content(review.restaurant.name)
   end
 end
 

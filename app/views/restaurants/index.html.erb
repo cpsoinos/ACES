@@ -1,4 +1,10 @@
 <br />
+<div class="pull-left grey">
+  <%= form_tag root_path, method: :get do %>
+    <%= text_field_tag :search_text %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  </div>
 <div class="pull-right grey">
   <% if user_signed_in? %>
   <%= link_to 'New restaurant', new_restaurant_path %>
@@ -57,4 +63,3 @@
     </div>
     <!-- /.container -->
   </footer>
-
