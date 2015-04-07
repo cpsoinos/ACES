@@ -1,9 +1,13 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user, except: [:create, :new, :edit, :update]
+  before_action :authorize_user, except: [:create, :new, :edit, :update, :show]
 
   def index
     @users = User.order("email ASC").page(params[:page])
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   def edit

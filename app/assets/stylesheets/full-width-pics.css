@@ -23,6 +23,11 @@ h4 {
   font-family: 'Josefin Sans', sans-serif;
 }
 
+.profile-thumb {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 .image-bg-fluid-height,
 .image-bg-fixed-height {
   text-align: center;

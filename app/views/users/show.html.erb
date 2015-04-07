@@ -1,0 +1,7 @@
+<h2>My Account</h2>
+
+<%= image_tag(current_user.avatar.thumb.url) %><br />
+
+<p><%= mail_to(current_user.email) %></p>
+
+<p><%= link_to "Edit my account", edit_user_registration_path(current_user) %></p>

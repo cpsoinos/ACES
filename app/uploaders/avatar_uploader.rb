@@ -1,6 +1,16 @@
 # encoding: utf-8
 
 class AvatarUploader < CarrierWave::Uploader::Base
+  include CarrierWave::MiniMagick
+
+  process resize_to_fit: [800, 800]
+  version :thumb do
+    process resize_to_fill: [200,200]
+  end
+  version :small_thumb, from_version: :thumb do
+    process resize_to_fill: [20, 20]
+  end
+
   if Rails.env.production? || Rails.env.development?
     storage :fog
   else
