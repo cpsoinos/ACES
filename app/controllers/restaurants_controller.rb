@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
 
   def index
     if params[:search_text].present?
-      @restaurants = Restaurant.search_results(params[:search_text]).page(params[:page])
+      @restaurants =
+        Restaurant.search_results(params[:search_text]).page(params[:page])
     else
       @restaurants = Restaurant.order("name ASC").page(params[:page])
     end
