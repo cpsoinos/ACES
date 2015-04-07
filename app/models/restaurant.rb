@@ -12,6 +12,8 @@ class Restaurant < ActiveRecord::Base
   def average_rating
     if reviews.count > 0
       reviews.sum(:rating) / reviews.count
+    else
+      1
     end
   end
 
@@ -20,9 +22,7 @@ class Restaurant < ActiveRecord::Base
     top_array = []
     restaurants = Restaurant.all
     restaurants.each do |restaurant|
-      if restaurant.reviews.count > 0
-        top_hash[restaurant] = restaurant.average_rating
-      end
+      top_hash[restaurant] = restaurant.average_rating
     end
     top_array << top_hash.sort_by { |k, v| -v }.first(5)
     top_array.flatten(1)
@@ -32,7 +32,7 @@ class Restaurant < ActiveRecord::Base
     current_user.role == "admin" || current_user == user
   end
 
-  def self.search_results(query)
+  def self.search(query)
     sql = %Q{
       restaurants.name ILIKE ?
       or restaurants.description ILIKE ?
