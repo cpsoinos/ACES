@@ -32,14 +32,21 @@ feature "user registers", %Q{
     expect(page).to_not have_content("Sign Out")
   end
 
-  scenario "sign up with an avatar photo" do
+  scenario "user sees avatar in menu bar" do
     user = FactoryGirl.create(:user_with_photo)
     sign_in user
     visit root_path
-    # attach_file("user_avatar", "spec/fixtures/dan.jpg")
 
-    # expect(page).to have_image(user.avatar.url)
-    save_and_open_page
+    expect(page).to have_xpath("//img[@src=\"#{user.avatar.small_thumb.url}\"]")
+  end
+
+  scenario "user without avatar adds or updates an avatar photo" do
+    user = FactoryGirl.create(:user)
+    sign_in user
+    visit edit_user_registration_path(user)
+    attach_file("user_avatar","#{Rails.root}/spec/fixtures/images/dan.jpg")
+
+    click_button("Update")
     expect(page).to have_xpath("//img[@src=\"#{user.avatar.small_thumb.url}\"]")
   end
 end
