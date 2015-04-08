@@ -4,16 +4,17 @@ RSpec.describe UserMailer, type: :mailer do
 
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
   let!(:user) { FactoryGirl.create(:user) }
+  let(:mail) { UserMailer.review_alert_email(user) }
 
-  scenario "review a product" do
-    sign_in user
-    visit new_restaurant_review_path(restaurant)
+  it "renders the subject" do
+    expect(mail.subject).to eql("Information regarding your business")
+  end
 
-    fill_in "Body", with: "Total garbage."
-    choose 5
-    click_button "Create Review"
+  it "renders the receiver email" do
+    expect(mail.to).to eql([user.email])
+  end
 
-    expect(page).to have_content("Total garbage.")
-    expect(ActionMailer::Base.deliveries.count).to eq(1)
+  it "renders the sender email" do
+    expect(mail.from).to eql(["notifications@example.com"])
   end
 end

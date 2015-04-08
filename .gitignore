@@ -17,3 +17,6 @@
 
 # Ignore coverage files 4/3 CP
 coverage/
+
+# Ignore avatar photos for development/test env 4/8 CP
+/public/uploads/*
