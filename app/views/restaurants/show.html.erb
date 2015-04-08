@@ -34,25 +34,30 @@
 <br />
 
 <% if current_user != nil %>
-  <% if @restaurant.editable_by?(current_user) %>
-    <%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
-    <br />
-    <%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
-  <% end %>
+<% if @restaurant.editable_by?(current_user) %>
+<%= link_to 'Edit restaurant', edit_restaurant_path(@restaurant) %>
+<br />
+<%= link_to 'Delete restaurant', restaurant_path(@restaurant), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 
-  <%= link_to 'Write Review', new_restaurant_review_path(@restaurant) %>
+<%= link_to 'Write Review', new_restaurant_review_path(@restaurant) %>
 
-  <% @restaurant.reviews.each do |r| %>
-    <p>Rating:<%=r.rating%></p>
-    <p>Review:<%=r.body%></p>
-    <%= button_to "Up-vote", review_upvotes_path(r) %>
-    <p>Score: <%= r.score %></p>
-    <%= button_to "Down-vote", review_downvotes_path(r) %>
-    <% if r.editable_by?(current_user) %>
-      <%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?' } %>
-      <%= link_to 'Edit Review', edit_restaurant_review_path(r.restaurant_id, r.id) %>
-    <% end %>
-  <% end %>
+<% @restaurant.reviews.each do |r| %>
+<%= button_to "Up-vote", review_upvotes_path(r) %>
+<p>Score: <%=r.score%></p>
+<%= button_to "Down-vote", review_downvotes_path(r) %>
+<p>Rating:<%=r.rating%></p>
+<p>Review:<%=r.body%></p>
+<p><%= r.user.name %></p>
+<p>Review Created: <%= r.created_at %></p>
+
+<%= image_tag(r.photo.thumb) %>
+
+<% if r.editable_by?(current_user) %>
+<%= link_to 'Delete Review', restaurant_review_path(r.restaurant_id, r.id),
+method: :delete,
+data: { confirm: 'Are you sure?' } %>
+<%= link_to 'Edit Review', edit_restaurant_review_path(r.restaurant_id, r.id) %>
+<% end %>
+<% end %>
 <% end %>

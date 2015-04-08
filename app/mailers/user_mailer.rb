@@ -4,8 +4,10 @@ class UserMailer < ApplicationMailer
 
   def review_alert_email(user)
     @user = user
-    @url  = "http://www.chinatown-aces.herokuapp.com"
-    mail(to: @user.email, subject: "Information regarding your business")
+    @url  = 'http://www.chinatown-aces.herokuapp.com'
+    if @user
+      mail(to: @user.email, subject: 'Information regarding your business')
+    end
   end
 
 end
