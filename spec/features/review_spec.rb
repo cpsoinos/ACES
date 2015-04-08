@@ -16,6 +16,7 @@ feature "user creates review", %Q{
     visit new_restaurant_review_path(restaurant)
     fill_in "Body", with: "very good restaurant"
     choose("5")
+    # attach_file("review_photo", "spec/fixtures/dan.jpg")
     click_button("Create Review")
 
     expect(page).to have_content("very good restaurant")
@@ -113,4 +114,7 @@ feature "user edits review", %Q{
 
     expect(page).to have_content("Body can't be blank")
   end
+
 end
+
+
