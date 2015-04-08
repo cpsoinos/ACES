@@ -16,7 +16,6 @@ feature "user votes on review", %Q{
     click_button("Up-vote")
 
     expect(page).to have_content("Vote Received")
-    save_and_open_page
     expect(page).to have_content("Score: 1")
   end
 
