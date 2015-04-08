@@ -24,7 +24,7 @@ class Restaurant < ActiveRecord::Base
     restaurants.each do |restaurant|
       top_hash[restaurant] = restaurant.average_rating
     end
-    top_array << top_hash.sort_by { |k, v| -v }.first(5)
+    top_array << top_hash.sort_by { |k, v| -v }.first(6)
     top_array.flatten(1)
   end
 
