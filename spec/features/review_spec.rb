@@ -117,7 +117,4 @@ feature "user edits review", %Q{
 
     expect(page).to have_content("Body can't be blank")
   end
-
 end
-
-
