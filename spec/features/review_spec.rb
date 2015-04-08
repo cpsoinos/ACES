@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 feature "user creates review", %Q{
   As an authenticated user
@@ -21,6 +21,7 @@ feature "user creates review", %Q{
 
     expect(page).to have_content("very good restaurant")
     expect(page).to have_content("Review Created!")
+    expect(ActionMailer::Base.deliveries.count).to eq(1)
   end
 
   scenario "user submits review without rating" do

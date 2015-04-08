@@ -30,6 +30,8 @@ gem 'fog-aws'
 # gem to add us states
 gem 'country_state_select'
 
+gem 'rails_12factor', group: :production
+
 group :development, :test do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

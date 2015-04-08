@@ -1,6 +1,6 @@
 class UserMailer < ApplicationMailer
 
-  default from: 'notifications@example.com'
+  default from: "notifications@example.com"
 
   def review_alert_email(user)
 

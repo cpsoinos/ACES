@@ -1,10 +1,16 @@
-require 'factory_girl'
+require "factory_girl"
 
 FactoryGirl.define do
   factory :user do
     sequence(:email) {|n| "user#{n}@example.com" }
-    password 'password'
-    password_confirmation 'password'
+    password "password"
+    password_confirmation "password"
+
+    factory :user_with_photo do
+      avatar Rack::Test::UploadedFile.new(
+        "#{Rails.root}/spec/fixtures/images/dan.jpg"
+      )
+    end
   end
 
   factory :restaurant do
@@ -21,8 +27,8 @@ FactoryGirl.define do
   end
 
   factory :review do
-    body 'great place'
-    rating '5'
+    body "great place"
+    rating "5"
     restaurant
     user
   end
