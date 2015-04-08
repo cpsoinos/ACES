@@ -44,7 +44,7 @@ feature "user registers", %Q{
     user = FactoryGirl.create(:user)
     sign_in user
     visit edit_user_registration_path(user)
-    attach_file("user_avatar","#{Rails.root}/spec/fixtures/images/dan.jpg")
+    attach_file("user_avatar", "#{Rails.root}/spec/fixtures/images/dan.jpg")
 
     click_button("Update")
     expect(page).to have_xpath("//img[@src=\"#{user.avatar.small_thumb.url}\"]")
