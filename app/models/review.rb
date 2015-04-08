@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
+  mount_uploader :photo, PhotoUploader
   belongs_to :restaurant
   belongs_to :user
   has_many :votes, dependent: :destroy
