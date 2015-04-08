@@ -15,7 +15,6 @@ feature "navigates to index page", %Q{
 
   scenario "user views index page" do
     visit restaurants_path
-
     expect(page).to have_content(restaurant.name)
   end
 

@@ -11,6 +11,7 @@ class ReviewsController < ApplicationController
     @review = @restaurant.reviews.new(review_params)
     @review.user = current_user
     if @review.save
+      UserMailer.review_alert_email(@restaurant.user).deliver_later
       flash[:notice] = "Review Created!"
       redirect_to restaurant_path(@restaurant)
     else
