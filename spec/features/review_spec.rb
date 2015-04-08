@@ -7,6 +7,7 @@ feature "user creates review", %Q{
 } do
 
   let!(:restaurant) { FactoryGirl.create(:restaurant) }
+  let!(:review) { FactoryGirl.create(:review) }
   let!(:user) { FactoryGirl.create(:user) }
   before :each do
     sign_in user
@@ -16,9 +17,10 @@ feature "user creates review", %Q{
     visit new_restaurant_review_path(restaurant)
     fill_in "Body", with: "very good restaurant"
     choose("5")
-    # attach_file("review_photo", "spec/fixtures/dan.jpg")
+    attach_file("review_photo", "spec/fixtures/images/dan.jpg")
     click_button("Create Review")
 
+    expect(page).to have_xpath("//img[@src=\"#{review.photo.thumb}\"]")
     expect(page).to have_content("very good restaurant")
     expect(page).to have_content("Review Created!")
     expect(ActionMailer::Base.deliveries.count).to eq(1)
