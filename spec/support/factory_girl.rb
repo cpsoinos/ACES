@@ -5,6 +5,12 @@ FactoryGirl.define do
     sequence(:email) {|n| "user#{n}@example.com" }
     password 'password'
     password_confirmation 'password'
+
+    factory :user_with_photo do
+      avatar { Rack::Test::UploadedFile.new(
+        "#{Rails.root}/spec/fixtures/images/dan.jpg"
+      ) }
+    end
   end
 
   factory :restaurant do
