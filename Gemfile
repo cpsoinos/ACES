@@ -36,7 +36,7 @@ group :development, :test do
   # Adding pry for development purposes. AT
   gem 'pry'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  # gem 'spring'
   #Better errors. AT
   gem 'better_errors'
   # testing this gem out
