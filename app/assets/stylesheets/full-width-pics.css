@@ -18,6 +18,46 @@ h3 {
 h4 {
   font-family: 'Josefin Sans', sans-serif;
 }
+input {
+font-family: 'Josefin Sans', sans-serif;
+font-size: 16px;
+border-radius: 5px;
+}
+.field {
+  font-family: 'Josefin Sans', sans-serif;
+font-size: 16px
+}
+
+
+.photo-upload {
+  position: relative;
+}
+.red-border{
+  width: 100%;
+  height:5px;
+  background-color: #c60000;
+}
+
+.actions input {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background: none;
+  border: 3px solid #c60000;
+  color: #c60000;
+  margin-top: 10px;
+}
+
+input[type=submit] {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  background: none;
+  border: 3px solid #c60000;
+  color: #c60000;
+  margin-top: 4px;
+  background-color: white;
+}
 
 .navbar-inverse {
   background: url("../assets/top-bar-background.png") repeat-x;
@@ -50,7 +90,9 @@ h4 {
   padding: 100px 0;
   filter: blur(0px) grayscale(0%);
 }
-
+.photo-upload {
+  margin: 0 auto;
+}
 .img-center {
 	margin: 0 auto;
 }
@@ -267,4 +309,11 @@ footer {
   color: #ffffff;
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.review-border {
+  border: solid 1px #d8d8d8;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  padding: 12px;
 }

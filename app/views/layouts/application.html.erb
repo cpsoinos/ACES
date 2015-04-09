@@ -3,6 +3,7 @@
 <head>
   <title>Aces</title>
   <%= stylesheet_link_tag 'application', media: 'all' %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -47,10 +48,10 @@
     </div>
     <!-- /.navbar-collapse -->
   </nav>
-
+<% if params[:action] != "index" %>
   <header class="image-bg-fluid-height">
   </header>
-
+<% end %>
     <%- flash.each do |key, value| -%>
     <div class="flash flash-<%= key %>">
       <%= value %>

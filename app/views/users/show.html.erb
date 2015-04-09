@@ -1,7 +1,41 @@
-<h2>My Account</h2>
+<div class="container">
+  <div class="page-header"><h1><%= current_user.name %></h1></div>
+  <div class="row">
+    <div class='col-sm-4'>
+      <%= image_tag(current_user.avatar.thumb.url) %><br />
+    </div>
+    <div class='col-sm-4'>
+      <ul class="list-group">
+        <li class="list-group-item">Member since: <%= current_user.created_at %></li>
+        <li class="list-group-item"><%= mail_to(current_user.email) %></li>
+        <li class="list-group-item"><%= link_to "Edit my account", edit_user_registration_path(current_user) %></li>
+      </ul>
+    </div>
+    <div class='col-sm-4'>
+      <% current_user.reviews.each do |review| %>
+    <div class="review-border">
+      Review of: <%= link_to review.restaurant.name, restaurant_path(review.restaurant.id) %>
+      <br /><br />
+      <p><%= review.body %></p>
+    </div>
+     <% end %>
+    </div>
 
-<%= image_tag(current_user.avatar.thumb.url) %><br />
+  </div>
 
-<p><%= mail_to(current_user.email) %></p>
-
-<p><%= link_to "Edit my account", edit_user_registration_path(current_user) %></p>
+<!-- id: 2,
+ email: "paul@hotmail.com",
+ encrypted_password: "$2a$10$1tKi6l2bUnzKFdga27hfW.60oHkoTN//hPoMcJIx36OeZ5VxFC9xe",
+ reset_password_token: nil,
+ reset_password_sent_at: nil,
+ remember_created_at: nil,
+ sign_in_count: 1,
+ current_sign_in_at: Thu, 09 Apr 2015 14:45:53 UTC +00:00,
+ last_sign_in_at: Thu, 09 Apr 2015 14:45:53 UTC +00:00,
+ current_sign_in_ip: #<IPAddr: IPv6:0000:0000:0000:0000:0000:0000:0000:0001/ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff>,
+ last_sign_in_ip: #<IPAddr: IPv6:0000:0000:0000:0000:0000:0000:0000:0001/ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff>,
+ created_at: Thu, 09 Apr 2015 14:45:51 UTC +00:00,
+ updated_at: Thu, 09 Apr 2015 14:45:53 UTC +00:00,
+ role: "user",
+ avatar: "bpit.jpg",
+ name: "no name"> -->

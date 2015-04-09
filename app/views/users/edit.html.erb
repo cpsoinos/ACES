@@ -22,12 +22,13 @@
     <%= f.email_field :email, autofocus: true %>
   </div>
 
+
   <p>
     <%= f.label :role %><br>
     <%= f.select :role, options_for_select(["user", "admin"]) %>
   </p>
 
-  <p>
+  <p class="button">
     <%= f.submit %>
   </p>
 
