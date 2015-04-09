@@ -36,7 +36,7 @@
         <%- if current_user.admin? -%>
           <li><%= link_to 'Admin', users_path %></li>
         <%- end -%>
-        <li class="profile-thumb"><%= image_tag(current_user.avatar.small_thumb.url) -%></li>
+        <li class="profile-thumb"><%= image_tag(current_user.avatar.small_thumb.url, id: "profile-thumb") %></li>
         <li><%= link_to 'Profile', current_user %></li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <%- else -%>
@@ -61,6 +61,6 @@
 
     <%= javascript_include_tag 'application' %>
     <%= yield :extra_footer %>
-    
+
 </body>
 </html>

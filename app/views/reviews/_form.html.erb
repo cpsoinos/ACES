@@ -12,14 +12,15 @@
       </ul>
     </div>
   <% end %>
+
   <p>
     <%= f.label :body %>
     <%= f.text_field :body %>
   </p>
-    <div class="field">
+
+  <div class="field">
     <%= f.label :photo %><br />
     <%= f.file_field :photo %>
-
   </div>
 
   <p>
@@ -29,5 +30,6 @@
       <%= f.label("rating_#{c}", c) %>
     <% end %>
   </p>
+
   <%= f.submit%>
   <% end %>

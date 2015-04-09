@@ -10,11 +10,12 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-6">
-        <img src="assets/placeholder.jpg" alt="" />
+        <iframe src=<%= @google_maps_url %>>
+        </iframe>
+        <!-- <img class = "top-picks" src="assets/placeholder.jpg" alt="" /> -->
       </div>
-      <div class="col-sm-6 text-center">
-        <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in sem cras amet.</h2>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed interdum metus et ligula venenatis, at rhoncus nisi molestie. Pellentesque porttitor elit suscipit massa laoreet metus.</p>
+      <div class="col-sm-6 text-center" id="next-to-map">
+        <h2>The best (and worst) that Boston's Chinatown has to offer.</h2>
       </div>
     </div>
   </div>
@@ -27,16 +28,18 @@
     <h2 class="text-center">Today's Top Picks</h2> <hr />
     <div class="row text-center">
       <% Restaurant.top_restaurants.each do |restaurant| %>
-        <div class="col-sm-2 col-xs-4">
-          <% if restaurant.image %>
-            <%= image_tag(restaurant.image.thumb.url) %>
+        <div class="col-sm-4 col-xs-6">
+          <% if restaurant[0].photo.url %>
+            <%= image_tag(restaurant[0].photo.thumb.url, class: "top-picks") %>
           <% else %>
-            <img src="assets/restaurant_placeholder.png">
+            <img class="placeholder" src="assets/restaurant_placeholder.png">
           <% end %>
           <div class="top-pick-name">
             <h4><%= link_to restaurant[0].name, restaurant_path(restaurant)%></h4>
           </div>
-          <img class="rice-bowl" src="assets/bowl-<%= restaurant[0].average_rating %>.png">
+          <div class="rice-bowl">
+            <img src="assets/bowl-<%= restaurant[0].average_rating %>.png">
+          </div>
         </div>
       <% end %>
     </div>
@@ -48,26 +51,29 @@
 <div id="information" class="pad-section">
   <div class="container">
     <div class="row">
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
-          </div>
-          <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet.
+      <% @restaurants.each do |restaurant| %>
+        <div class="col-sm-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h2 class="panel-title">
+                <%= link_to restaurant.name, restaurant_path(restaurant) %>
+              </h2>
+            </div>
+            <div class="panel-body lead">
+              <div class="col-xs-6">
+                <% if restaurant.photo.url %>
+                  <%= image_tag(restaurant.photo.thumb.url, class: "top-picks") %>
+                <% else %>
+                  <img class="placeholder" src="assets/restaurant_placeholder.png">
+                <% end %>
+              </div>
+              <div class="col-xs-6">
+                <%= restaurant.description %>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h2 class="panel-title">Additional information</h2>
-          </div>
-          <div class="panel-body lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed hendrerit adipiscing blandit. Aliquam placerat, velit a fermentum fermentum, mi felis vehicula justo, a dapibus quam augue non massa. Duis euismod, augue et tempus consequat, lorem mauris porttitor quam, consequat ultricies mauris mi a metus. Phasellus congue, leo sed ultricies tristique, nunc libero tempor ligula, at varius mi nibh in nisi. Aliquam erat volutpat. Maecenas rhoncus, neque facilisis rhoncus tempus, elit ligula varius dui, quis amet.
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
