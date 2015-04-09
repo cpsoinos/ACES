@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   before_action :authorize_user, except: [:index, :show, :create, :new]
 
   def index
+    @google_maps_url = 'https://www.google.com/maps/embed/v1/place?key=' + ENV["GOOGLE_MAPS_API_KEY"] + '&q=Chinatown+Boston+MA'
     if params[:search_text].present?
       @restaurants =
         Restaurant.search(params[:search_text]).order("name ASC")
@@ -57,7 +58,7 @@ class RestaurantsController < ApplicationController
   def restaurant_params
     params.require(:restaurant).permit(
       :name, :street_address, :city, :state, :zip_code, :description,
-      :phone, :reservations, :delivery, :category_id, :user_id
+      :phone, :reservations, :delivery, :category_id, :user_id, :photo
       )
   end
 

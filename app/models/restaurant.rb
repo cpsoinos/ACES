@@ -2,6 +2,7 @@ class Restaurant < ActiveRecord::Base
   has_many :reviews
   belongs_to :user
   belongs_to :category
+  mount_uploader :photo, PhotoUploader
 
   validates :name, presence: true
   validates :street_address, presence: true
@@ -24,7 +25,7 @@ class Restaurant < ActiveRecord::Base
     restaurants.each do |restaurant|
       top_hash[restaurant] = restaurant.average_rating
     end
-    top_array << top_hash.sort_by { |k, v| -v }.first(5)
+    top_array << top_hash.sort_by { |k, v| -v }.first(3)
     top_array.flatten(1)
   end
 
