@@ -51,12 +51,6 @@ h4 {
   filter: blur(0px) grayscale(0%);
 }
 
-.image-bg-fixed-height {
-	background: url('../assets/china.png') no-repeat center center scroll;
-  height: 450px;
-  filter: blur(0px) grayscale(0%);
-}
-
 .img-center {
 	margin: 0 auto;
 }
