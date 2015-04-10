@@ -173,7 +173,6 @@ iframe {
 .rice-bowl {
   width: auto;
   height: 56px;
-  /* padding-bottom: 6px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -488,4 +487,18 @@ input.admin-buttons {
 .edit-profile {
   display: block;
   margin: auto;
+}
+
+.sign-in {
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.8em;
+  color: black;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.sign-in a {
+  text-decoration: none;
+  color: #ff4c4c;
 }

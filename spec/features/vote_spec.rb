@@ -13,7 +13,7 @@ feature "user votes on review", %Q{
 
   scenario "user successfully up-votes review" do
     visit restaurant_path(review.restaurant)
-    click_button("Up-vote")
+    click_button("upvote")
 
     expect(page).to have_content("Vote Received")
     expect(page).to have_content("Score: 1")
@@ -21,7 +21,7 @@ feature "user votes on review", %Q{
 
   scenario "user successfully down-votes review" do
     visit restaurant_path(review.restaurant)
-    click_button("Down-vote")
+    click_button("downvote")
 
     expect(page).to have_content("Vote Received")
     expect(page).to have_content("Score: -1")
@@ -29,8 +29,8 @@ feature "user votes on review", %Q{
 
   scenario "user cannot down-vote a review more than once" do
     visit restaurant_path(review.restaurant)
-    click_button("Down-vote")
-    click_button("Down-vote")
+    click_button("downvote")
+    click_button("downvote")
 
     expect(page).to have_content("You cannot vote twice on a single review")
     expect(page).to have_content("Score: -1")
@@ -38,8 +38,8 @@ feature "user votes on review", %Q{
 
   scenario "user cannot up-vote a review more than once" do
     visit restaurant_path(review.restaurant)
-    click_button("Up-vote")
-    click_button("Up-vote")
+    click_button("upvote")
+    click_button("upvote")
 
     expect(page).to have_content("You cannot vote twice on a single review")
     expect(page).to have_content("Score: 1")
