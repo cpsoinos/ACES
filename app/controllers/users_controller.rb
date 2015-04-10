@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    binding.pry
     @user = User.find(params[:id])
   end
 

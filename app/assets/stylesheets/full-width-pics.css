@@ -122,6 +122,10 @@ section {
 
 footer {
   margin: 50px 0;
+  position: relative;
+  bottom: 0;
+  right: 0;
+  left: 0;
 }
 
 @media(max-width:768px) {
@@ -464,4 +468,8 @@ a.edit-delete {
   border: 3px solid #ff4c4c;
   color: #ff4c4c;
   margin-top: 10px;
+}
+
+.registration {
+  height: 70%;
 }
