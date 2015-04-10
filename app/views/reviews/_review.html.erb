@@ -8,7 +8,9 @@
     </div>
     <div class="panel-body lead">
       <div class="col-xs-4 review-user-info">
+      <% if review.user.avatar.thumb.url %>
         <%= image_tag(review.user.avatar.thumb.url, class: "review-user-avatar top-picks") %>
+        <% end %>
         <p class="red-text"><%= review.user.name %></p>
         <p>Joined on <%= review.user.created_at.strftime("%d %b %y") %></p>
         <% if user_signed_in? %>
