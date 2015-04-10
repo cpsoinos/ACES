@@ -1,8 +1,3 @@
-require 'yelp'
-require 'pry'
-require 'json'
-require 'dotenv'
-
 state = %w[
 Alabama
 Alaska
