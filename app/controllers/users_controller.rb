@@ -17,6 +17,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
+      binding.pry
       flash[:notice] = "User updated!"
       redirect_to users_path
     else

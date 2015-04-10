@@ -14,6 +14,11 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @google_maps_url = %Q{
+      https://www.google.com/maps/embed/v1/place?key=
+      #{ENV["GOOGLE_MAPS_API_KEY"]}&q=#{@restaurant.parse_for_google_maps}
+    }
+    @reviews = @restaurant.reviews.page(params[:page])
   end
 
   def new

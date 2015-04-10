@@ -29,6 +29,11 @@ class Restaurant < ActiveRecord::Base
     top_array.flatten(1)
   end
 
+  def parse_for_google_maps
+    @google_map_params = [street_address, city, state].join(" ")
+    @google_map_params.gsub!(" ", "+")
+  end
+
   def editable_by?(current_user)
     current_user.role == "admin" || current_user == user
   end

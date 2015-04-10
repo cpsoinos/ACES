@@ -1,0 +1,41 @@
+
+<div class="col-sm-6 review">
+  <div class="panel panel-default" id="review-panel">
+    <div class="panel-heading">
+      <div class="rice-bowl">
+        <img src="../assets/bowl-<%= review.rating %>.png">
+      </div>
+      <!-- <p>Rating: <%= review.rating %></p> -->
+    </div>
+    <div class="panel-body lead">
+      <div class="col-xs-4 review-user-info">
+        <%= image_tag(review.user.avatar.thumb.url, class: "review-user-avatar top-picks") %>
+        <p class="red-text"><%= review.user.name %></p>
+        <p>Joined on <%= review.user.created_at.strftime("%d %b %y") %></p>
+        <%= button_to "", review_upvotes_path(review), class: "upvote" %>
+        <p>Score: <%= review.score %></p>
+        <%= button_to "", review_downvotes_path(review), class: "downvote" %>
+        <% if user_signed_in? %>
+          <% if review.editable_by?(current_user) %>
+            <p>
+              <%= link_to 'Edit', edit_restaurant_review_path(review.restaurant_id, review.id), class: "edit-delete" %> |
+              <%= link_to 'Delete', restaurant_review_path(review.restaurant_id, review.id),
+                method: :delete,
+                data: { confirm: 'Are you sure?' }, class: "edit-delete" %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="col-xs-8 review-content">
+        <div class="review-window">
+          <p><%= review.body %></p>
+          <%= image_tag(review.photo.thumb) %>
+        </div>
+        <p class="review-timestamp">Reviewed at: <%= review.created_at.strftime("%l:%M %P %d %b %y") %></p>
+        <% if review.created_at != review.updated_at %>
+          <p class="review-timestamp red-text edit">Edited: <%= review.updated_at.strftime("%l:%M %P %d %b %y") %></p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
