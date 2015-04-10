@@ -11,10 +11,10 @@
         <%= image_tag(review.user.avatar.thumb.url, class: "review-user-avatar top-picks") %>
         <p class="red-text"><%= review.user.name %></p>
         <p>Joined on <%= review.user.created_at.strftime("%d %b %y") %></p>
-        <%= button_to "", review_upvotes_path(review), class: "upvote" %>
-        <p>Score: <%= review.score %></p>
-        <%= button_to "", review_downvotes_path(review), class: "downvote" %>
         <% if user_signed_in? %>
+          <%= button_to "", review_upvotes_path(review), id: "upvote" %>
+          <p>Score: <%= review.score %></p>
+          <%= button_to "", review_downvotes_path(review), id: "downvote" %>
           <% if review.editable_by?(current_user) %>
             <p>
               <%= link_to 'Edit', edit_restaurant_review_path(review.restaurant_id, review.id), class: "edit-delete" %> |

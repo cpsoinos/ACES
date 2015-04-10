@@ -58,7 +58,7 @@ Wyoming
 
 r_and_d = [true, false]
 
-user = User.new(name: "admin",email: "sd@seeder.com", password: "seedpassword")
+user = User.new(name: "admin", email: "sd@seeder.com", password: "seedpassword")
 user.save!
 
 client = Yelp::Client.new({ consumer_key: ENV['CONSUMER_KEY'],
@@ -72,13 +72,12 @@ result = client.search('chinatown, ma' , { term: 'chinese' })
 result = JSON.parse(result.to_json)
 business_info = result['businesses']
 business_info.each do |business|
-    puts business['name']
-    Restaurant.find_or_create_by!(
+  puts business['name']
+  Restaurant.find_or_create_by!(
     name: "#{business['name']}", street_address: "#{business["location"]['address'][0]}",
     city: "#{business["location"]['city']}", state: "Massachusetts",
     zip_code: "#{business["location"]['postal_code']}", description: "#{business["snippet_text"]}",
-    phone: "#{business["display_phone"]}", reservations: r_and_d.sample, delivery: r_and_d.sample ,
+    phone: "#{business["display_phone"]}", reservations: r_and_d.sample, delivery: r_and_d.sample,
     photo: "#{business["image_url"]}"
-    )
-
+  )
 end
