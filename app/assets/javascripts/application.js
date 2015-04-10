@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.infinitescroll
-//= require foundation
 //= require_tree .
 //= require bootstrap.js
 //= require bootstrap.min.js
