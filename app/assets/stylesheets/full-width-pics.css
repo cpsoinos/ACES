@@ -463,7 +463,7 @@ a.edit-delete {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 20px;
   font-weight: bold;
-  background: none;
+  background-color: rgba(245, 245, 245, 0.7);
   border: 3px solid #ff4c4c;
   color: #ff4c4c;
   margin-top: 10px;
@@ -491,11 +491,12 @@ input.admin-buttons {
 
 .sign-in {
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(245, 245, 245, 0.7);
   font-size: 1.8em;
   color: black;
   padding-left: 2px;
   padding-right: 2px;
+  margin-top: 0.7em;
 }
 
 .sign-in a {
