@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       u.permit(
         :username, :email, :password, :name,
         :password_confirmation, :current_password,
-        :avatar, :avatar_cache
+        :avatar, :avatar_cache, :remove_avatar
       )
     end
   end

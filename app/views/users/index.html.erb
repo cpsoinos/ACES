@@ -3,13 +3,15 @@
   <div class="row">
     <table>
       <tr>
+        <th></th>
         <th>Name</th>
         <th>Email</th>
         <th>Role</th>
       </tr>
       <% @users.each do |user| %>
         <tr>
-          <td><%= user.name %></td>
+          <td><%= image_tag(user.avatar.small_thumb.url, class: "top-picks") %>
+          <td><%= link_to user.name, user_path(user) %></td>
           <td><%= user.email %></td>
           <td><%= user.role %></td>
           <td><%= button_to "Edit", edit_user_path(user), method: :get, class: "admin-buttons" %></td>

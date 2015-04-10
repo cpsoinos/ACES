@@ -2,7 +2,8 @@
   <div class="page-header"><h1>Edit User</h1></div>
   <div class="row">
     <div class="col-sm-4">
-      <%= image_tag(@user.avatar.thumb.url, class: "top-picks") %>
+      <%= image_tag(@user.avatar.thumb.url, class: "top-picks edit-profile") %>
+      <%= button_to "Delete User", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "edit-profile" %>
     </div>
     <div class="col-sm-8">
       <% if @user.errors.any? %>
@@ -40,13 +41,20 @@
           <%= f.file_field :avatar %>
         </div><br />
 
+        <div class="field">
+          <% if @user.avatar.url.present? %>
+            <%= image_tag(@user.avatar.small_thumb.url, class: "top-picks") %>
+            <%= f.label :remove_avatar do %>
+              <%= f.check_box :remove_avatar %> <i>Remove image</i>
+            <% end %>
+          <% end %>
+        </div>
+
         <p class="button">
           <%= f.submit %>
         </p>
 
       <% end %>
-
-      <%= button_to "Delete User", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
     </div>
   </div>
 </div>
