@@ -32,7 +32,7 @@
           <% if restaurant[0].photo.url %>
             <%= image_tag(restaurant[0].photo.thumb.url, class: "top-picks") %>
           <% else %>
-            <img class="placeholder" src="assets/restaurant_placeholder.png">
+            <%= image_tag "restaurant_placeholder.png", class: "placeholder" %>
           <% end %>
           <div class="top-pick-name">
             <h4><%= link_to restaurant[0].name, restaurant_path(restaurant)%></h4>

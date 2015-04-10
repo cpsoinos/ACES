@@ -10,7 +10,9 @@
           <div class="vertical">
             <% if @restaurant.photo.url %>
               <%= image_tag(@restaurant.photo.url, class: "top-picks", id: "restaurant-picture") %>
-            <% end %>
+          <% else %>
+            <%= image_tag "restaurant_placeholder.png", class: "placeholder" %>
+          <% end %>
           </div>
         </div>
       </div>
