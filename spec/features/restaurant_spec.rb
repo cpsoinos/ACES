@@ -57,14 +57,14 @@ feature "navigates to index page", %Q{
     visit restaurants_path
 
     click_link restaurant.name, match: :first
-    expect(page).to have_content("Description:")
+    expect(page).to have_content(restaurant.name)
     expect(page).to have_content(restaurant.description)
     expect(page).to have_content("Phone")
     expect(page).to have_content(restaurant.phone)
     expect(page).to have_content("Reservations")
-    expect(page).to have_content(restaurant.reservations)
+    expect(page).to have_content("Yes" || "No")
     expect(page).to have_content("Delivery")
-    expect(page).to have_content(restaurant.delivery)
+    expect(page).to have_content("Yes" || "No")
   end
 end
 
@@ -115,7 +115,7 @@ feature "user edits a restaurant they own", %Q{
     sign_in restaurant.user
     visit restaurant_path(restaurant)
 
-    expect(page).to have_content("Edit restaurant")
+    page.should have_selector(:link_or_button, 'Edit restaurant')
   end
 
   scenario "owner provides new valid information" do
@@ -166,13 +166,13 @@ feature "user deletes a restaurant they own", %Q{
     sign_in restaurant.user
     visit restaurant_path(restaurant)
 
-    expect(page).to have_content("Delete restaurant")
+    page.should have_selector(:link_or_button, 'Delete restaurant')
   end
 
   scenario "owner deletes their own restaurant" do
     sign_in restaurant.user
     visit restaurant_path(restaurant)
-    click_link("Delete restaurant")
+    click_button("Delete restaurant")
 
     expect(page).to have_content("Restaurant deleted!")
   end

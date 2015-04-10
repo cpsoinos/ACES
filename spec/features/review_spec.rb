@@ -55,7 +55,7 @@ feature "user deletes review", %Q{
   scenario "user successfully deletes review" do
     sign_in review.user
     visit restaurant_path(review.restaurant)
-    click_link("Delete Review")
+    click_link("Delete")
 
     expect(page).to have_content("Review Deleted!")
   end
@@ -97,7 +97,7 @@ feature "user edits review", %Q{
 
   scenario "user tries to edit a review" do
     visit restaurant_path(review.restaurant)
-    click_link("Edit Review")
+    click_link("Edit")
 
     expect(page).to have_content("Edit your review of #{review.restaurant.name}")
   end

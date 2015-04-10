@@ -62,7 +62,9 @@
         <% if user_signed_in? %>
           <%= button_to 'New restaurant', new_restaurant_path, method: :get %>
         <% else %>
+        <div class="sign-in">
           <p>Please<%= link_to ' sign in', new_user_session_path %> to create a new restaurant</p>
+          </div>
         <% end %>
       </div>
     </div>

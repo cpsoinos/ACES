@@ -473,3 +473,17 @@ a.edit-delete {
 .registration {
   height: 70%;
 }
+
+.sign-in {
+  border-radius: 5px;
+  background-color: white;
+  font-size: 1.8em;
+  color: black;
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.sign-in a {
+  text-decoration: none;
+  color: #ff4c4c;
+}

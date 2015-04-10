@@ -10,8 +10,6 @@
           <div class="vertical">
             <% if @restaurant.photo.url %>
               <%= image_tag(@restaurant.photo.url, class: "top-picks", id: "restaurant-picture") %>
-            <% else %>
-              <img class="placeholder" src="assets/restaurant_placeholder.png">
             <% end %>
           </div>
         </div>
@@ -28,7 +26,7 @@
 <!--  -->
 <!-- Map and Contact Info -->
 <!--  -->
-
+<div class="red-border"></div>
 <div id="about" class="pad-section">
   <div class="container">
     <div class="row">
@@ -62,6 +60,10 @@
               <tr>
                 <th>Delivery:</th>
                 <td><%= @restaurant.delivery ? "Yes" : "No" %></td>
+              </tr>
+              <tr>
+                <th>Phone:</th>
+                <td><%= @restaurant.phone %></td>
               </tr>
             </table>
           </div>
@@ -99,7 +101,9 @@
             <% end %>
             <%= button_to 'Write Review', new_restaurant_review_path(@restaurant), method: :get %>
           <% else %>
+          <div class="sign-in">
             <p>Please<%= link_to ' sign in', new_user_session_path %> to write a new review</p>
+            </div>
           <% end %>
         </div>
       </div>
