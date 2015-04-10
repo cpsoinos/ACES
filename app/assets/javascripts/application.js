@@ -17,6 +17,7 @@
 //= require_tree .
 //= require bootstrap.js
 //= require bootstrap.min.js
+//= require restaurants.js.coffee
 
 $(function(){ $(document).foundation(); });
 

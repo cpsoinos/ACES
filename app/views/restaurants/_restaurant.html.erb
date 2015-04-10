@@ -5,7 +5,7 @@
         <%= link_to restaurant.name, restaurant_path(restaurant) %>
       </h2>
     </div>
-    <div class="panel-body lead">
+    <div class="panel-body lead review-window">
       <div class="col-xs-6">
         <% if restaurant.photo.url %>
           <%= image_tag(restaurant.photo.thumb.url, class: "top-picks") %>
