@@ -3,3 +3,5 @@ rvm:
   - 2.0.0
 before_script:
   - psql -c 'create database ACES_test;' -U postgres
+
+secure: "EKyQXcv2EfZF/p+rqUT5Q4hm2H+pGyvId5W/Rbj34gfPbXPh5x1Nnsp4H/y88KXRN9GvKENIYiFiTSSAVqYp8pOS0Whu8Fyu1KTUUK28SWGgsUlYNRExf6Z39O6wmegE6qG4eJ4WOrXhb2vK2I3u8Po+7+TD/JxbvcrKtOZU138="
