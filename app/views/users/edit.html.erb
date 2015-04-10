@@ -1,44 +1,60 @@
 <div class="container registration">
   <div class="page-header"><h1>Edit User</h1></div>
-    <div class="row">
-    <%= image_tag @user.avatar.thumb.url %>
-    <% if @user.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@user.errors.count, "error") %> prohibited
-          this user from being saved:
-        </h2>
-        <ul>
-          <% @user.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
+  <div class="row">
+    <div class="col-sm-4">
+      <%= image_tag(@user.avatar.thumb.url, class: "top-picks edit-profile") %>
+      <%= button_to "Delete User", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete, class: "edit-profile" %>
+    </div>
+    <div class="col-sm-8">
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h2>
+            <%= pluralize(@user.errors.count, "error") %> prohibited
+            this user from being saved:
+          </h2>
+          <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form_for @user do |f| %>
+        <div class="field">
+          <%= f.label :name %><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true %>
+        </div>
+
+        <p>
+          <%= f.label :role %><br>
+          <%= f.select :role, options_for_select(["user", "admin"]) %>
+        </p>
+
+        <div class="field">
+          <%= f.label :avatar %><br />
+          <%= f.file_field :avatar %>
+        </div><br />
+
+        <div class="field">
+          <% if @user.avatar.url.present? %>
+            <%= image_tag(@user.avatar.small_thumb.url, class: "top-picks") %>
+            <%= f.label :remove_avatar do %>
+              <%= f.check_box :remove_avatar %> <i>Remove image</i>
+            <% end %>
           <% end %>
-        </ul>
-      </div>
-    <% end %>
+        </div>
 
-    <%= form_for @user do |f| %>
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true %>
-      </div>
+        <p class="button">
+          <%= f.submit %>
+        </p>
 
-      <p>
-        <%= f.label :role %><br>
-        <%= f.select :role, options_for_select(["user", "admin"]) %>
-      </p>
-
-      <div class="field">
-        <%= f.label :avatar %><br />
-        <%= f.file_field :avatar %>
-      </div><br />
-
-      <p class="button">
-        <%= f.submit %>
-      </p>
-
-    <% end %>
-
-    <%= button_to "Delete user", registration_path(@user), data: { confirm: "Are you sure?" }, method: :delete %>
-
+      <% end %>
+    </div>
   </div>
 </div>

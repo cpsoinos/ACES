@@ -173,7 +173,6 @@ iframe {
 .rice-bowl {
   width: auto;
   height: 56px;
-  /* padding-bottom: 6px; */
   margin-left: auto;
   margin-right: auto;
 }
@@ -472,6 +471,22 @@ a.edit-delete {
 
 .registration {
   height: 70%;
+}
+
+table.admin, th, td {
+  font-size: 16px;
+  font-family: 'Josefin Sans', sans-serif;
+  padding-left: 1em;
+}
+
+input.admin-buttons {
+  font-size: 14px;
+  border: 2px solid #ff4c4c;
+}
+
+.edit-profile {
+  display: block;
+  margin: auto;
 }
 
 .sign-in {

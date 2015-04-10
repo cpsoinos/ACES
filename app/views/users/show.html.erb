@@ -1,25 +1,37 @@
-<div class="container registration">
-  <div class="page-header"><h1><%= current_user.name %></h1></div>
+<div class="container">
+  <div class="page-header"><h1><%= @user.name %></h1></div>
   <div class="row">
     <div class='col-sm-4'>
-      <%= image_tag(current_user.avatar.thumb.url) %><br />
+      <%= image_tag(@user.avatar.thumb.url, class: "top-picks edit-profile") %><br />
+      <% if current_user.admin? %>
+        <%= button_to "Edit user", edit_user_path(@user), method: :get, class: "edit-profile" %>
+      <% else %>
+        <%= button_to "Edit account", edit_user_registration_path(@user), method: :get, class: "edit-profile" %>
+      <% end %>
     </div>
     <div class='col-sm-4'>
-      <ul class="list-group">
-        <li class="list-group-item">Member since: <%= current_user.created_at %></li>
-        <li class="list-group-item"><%= mail_to(current_user.email) %></li>
-        <li class="list-group-item"><%= link_to "Edit my account", edit_user_registration_path(current_user) %></li>
-      </ul>
-    </div>
-    <div class='col-sm-4'>
-      <% current_user.reviews.each do |review| %>
-    <div class="review-border">
-      Review of: <%= link_to review.restaurant.name, restaurant_path(review.restaurant.id) %>
+      <table>
+        <tr>
+          <th>Name</th>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <th>Email</th>
+          <td><%= mail_to(@user.email) %></td>
+        </tr>
+        <tr>
+          <th>Member since</th>
+          <td><%= @user.created_at %></td>
+        </tr>
+      </table>
       <br /><br />
-      <p><%= review.body %></p>
-    </div>
+      <% @user.reviews.each do |review| %>
+        <div class="review-border">
+          User's review of: <%= link_to review.restaurant.name, restaurant_path(review.restaurant.id) %>
+          <br /><br />
+          <p><%= review.body %></p>
+        </div>
      <% end %>
     </div>
-
   </div>
 </div>

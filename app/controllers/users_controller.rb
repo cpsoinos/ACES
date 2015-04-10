@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user, except: [:create, :new, :edit, :update, :show]
+  before_action :authorize_user, except: [:create, :new, :update, :index]
 
   def index
+    authorize_admin
     @users = User.order("email ASC").page(params[:page])
   end
 
@@ -34,12 +35,18 @@ class UsersController < ApplicationController
   private
 
   def authorize_user
-    if !current_user.admin?
+    unless current_user.admin? || current_user == User.find(params[:id])
+      not_found
+    end
+  end
+
+  def authorize_admin
+    unless current_user.admin?
       not_found
     end
   end
 
   def user_params
-    params.require(:user).permit(:email, :role, :avatar)
+    params.require(:user).permit(:email, :role, :avatar, :name, :remove_avatar)
   end
 end
